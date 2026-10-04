@@ -1,18 +1,27 @@
 import { useState } from "react";
 import { Check } from "lucide-react";
 import { C, REDUCE_MOTION } from "../lib/theme";
+import { joinWaitlist } from "../lib/waitlist";
 
-// Local state only — not wired to a backend yet. Swap handleSubmit for
-// a real API call / email-capture service before this goes live.
 export default function WaitlistForm() {
   const [role, setRole] = useState("renter");
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState("idle"); // idle | sending | done
+  const [error, setError] = useState("");
+  const submitted = status === "done";
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (!email) return;
-    setSubmitted(true);
+    if (!email || status === "sending") return;
+    setStatus("sending");
+    setError("");
+    try {
+      await joinWaitlist({ email, role });
+      setStatus("done");
+    } catch (err) {
+      setError(err.message);
+      setStatus("idle");
+    }
   }
 
   if (submitted) {
@@ -64,18 +73,25 @@ export default function WaitlistForm() {
         aria-label="Email address"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="w-full h-[62px] px-7 mb-4 rounded-xl text-base outline-none transition-shadow duration-300 focus:shadow-[0_0_0_3px_rgba(181,80,46,0.35)]"
+        className="w-full h-[62px] px-7 rounded-xl text-base outline-none transition-shadow duration-300 focus:shadow-[0_0_0_3px_rgba(181,80,46,0.35)]"
         style={{ backgroundColor: C.cream, color: C.ink, border: `1px solid ${C.ink}` }}
       />
-      <div className="flex justify-center">
+      <div className="min-h-[28px] pt-1.5 text-sm font-medium" role="alert" style={{ color: C.rustDeep }}>
+        {error}
+      </div>
+      <div className="flex justify-center mt-1">
         <button
           type="submit"
-          className="px-14 py-4 rounded-xl font-semibold text-lg transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:brightness-110"
+          disabled={status === "sending"}
+          className="px-14 py-4 rounded-xl font-semibold text-lg transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:brightness-110 disabled:opacity-70 disabled:hover:translate-y-0"
           style={{ backgroundColor: C.rust, color: C.paper }}
         >
-          Join the waitlist
+          {status === "sending" ? "Joining…" : "Join the waitlist"}
         </button>
       </div>
+      <p className="mt-4 text-center text-xs" style={{ color: C.slate }}>
+        We'll only email you about Leri's launch. Unsubscribe anytime.
+      </p>
     </form>
   );
 }
