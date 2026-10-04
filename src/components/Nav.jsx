@@ -1,14 +1,14 @@
-import { useState, useRef, useEffect, useLayoutEffect } from "react";
+import { useState, useEffect } from "react";
+import { Menu, X } from "lucide-react";
 import { C } from "../lib/theme";
 import { NAV } from "../data/nav";
 import Button from "./Button";
 
-// Glass sticky header with a sliding active-tab pill (measured via refs
-// and animated with CSS transitions).
+// Single-row sticky header: logo, inline links, CTA. Links collapse into
+// a dropdown menu on small screens.
 export default function Nav({ page, setPage }) {
   const [scrolled, setScrolled] = useState(false);
-  const tabRefs = useRef({});
-  const [pill, setPill] = useState({ left: 0, width: 0, opacity: 0 });
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -16,70 +16,84 @@ export default function Nav({ page, setPage }) {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useLayoutEffect(() => {
-    const el = tabRefs.current[page];
-    if (el) setPill({ left: el.offsetLeft, width: el.offsetWidth, opacity: 1 });
-    else setPill((p) => ({ ...p, opacity: 0 }));
-  }, [page]);
+  const go = (key) => {
+    setOpen(false);
+    setPage(key);
+  };
 
   return (
     <header
       className="sticky top-0 z-30 transition-shadow duration-300"
       style={{
-        backgroundColor: "rgba(238,240,234,0.82)",
-        backdropFilter: "blur(14px)",
-        WebkitBackdropFilter: "blur(14px)",
-        boxShadow: scrolled ? "0 4px 24px -12px rgba(28,35,33,0.25)" : "none",
-        borderBottom: `1px solid ${scrolled ? C.line : "transparent"}`,
+        backgroundColor: C.paper,
+        boxShadow: scrolled ? "0 6px 30px -12px rgba(28,35,33,0.25)" : "none",
       }}
     >
-      <div className="max-w-6xl mx-auto px-5 sm:px-8 py-4">
-        <div className="flex items-center justify-between mb-3">
-          <button onClick={() => setPage("home")} className="flex items-baseline gap-1 group">
-            <span
-              className="text-2xl font-semibold transition-transform duration-300 group-hover:-translate-y-0.5 inline-block"
-              style={{ fontFamily: "'Fraunces', serif", color: C.ink }}
-            >
-              Ilé
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full inline-block" style={{ backgroundColor: C.rust }} />
-          </button>
-          <div className="hidden sm:block">
-            <Button variant="primary" icon={false} onClick={() => setPage("waitlist")}>
-              Join the waitlist
-            </Button>
-          </div>
-        </div>
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-6">
+        <button onClick={() => go("home")} className="flex items-baseline gap-1 group" aria-label="Leri home">
+          <span
+            className="text-3xl font-black tracking-tight transition-transform duration-300 group-hover:-translate-y-0.5 inline-block"
+            style={{ color: C.ink }}
+          >
+            Leri
+          </span>
+          <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: C.rust }} />
+        </button>
 
-        <nav className="relative flex gap-1 overflow-x-auto">
-          <div
-            className="absolute top-0 bottom-0 rounded-lg transition-all duration-400 ease-out"
-            style={{
-              left: pill.left,
-              width: pill.width,
-              opacity: pill.opacity,
-              backgroundColor: C.ink,
-              transitionTimingFunction: "cubic-bezier(.22,1,.36,1)",
-            }}
-          />
+        <nav className="hidden md:flex items-center gap-8">
           {NAV.map((n) => {
             const active = page === n.key;
-            const Icon = n.icon;
             return (
               <button
                 key={n.key}
-                ref={(el) => (tabRefs.current[n.key] = el)}
-                onClick={() => setPage(n.key)}
-                className="relative z-10 flex items-center gap-2 px-4 py-2.5 rounded-lg font-mono text-xs uppercase tracking-wide whitespace-nowrap transition-colors duration-300"
-                style={{ color: active ? C.paper : C.slate }}
+                onClick={() => go(n.key)}
+                className="relative py-1 text-[15px] font-semibold whitespace-nowrap transition-colors duration-300 hover:opacity-100"
+                style={{ color: active ? C.rust : C.ink, opacity: active ? 1 : 0.85 }}
               >
-                <Icon size={13} />
                 {n.label}
+                <span
+                  className="absolute left-0 -bottom-0.5 h-0.5 rounded-full transition-all duration-300"
+                  style={{ width: active ? "100%" : 0, backgroundColor: C.rust }}
+                />
               </button>
             );
           })}
         </nav>
+
+        <div className="flex items-center gap-3">
+          <div className="hidden sm:block">
+            <Button onClick={() => go("waitlist")} className="!px-6 !py-3 text-[15px]">
+              Join the waitlist
+            </Button>
+          </div>
+          <button
+            className="md:hidden p-2 rounded-lg"
+            style={{ color: C.ink }}
+            onClick={() => setOpen((o) => !o)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X size={26} /> : <Menu size={26} />}
+          </button>
+        </div>
       </div>
+
+      {open && (
+        <div className="md:hidden px-5 pb-5" style={{ backgroundColor: C.paper }}>
+          <div className="flex flex-col rounded-2xl overflow-hidden" style={{ backgroundColor: C.ink }}>
+            {[...NAV, { key: "waitlist", label: "Join the waitlist" }].map((n) => (
+              <button
+                key={n.key}
+                onClick={() => go(n.key)}
+                className="text-left px-5 py-3.5 font-semibold border-b last:border-b-0"
+                style={{ color: page === n.key ? C.kraft : C.paper, borderColor: "#2E3634" }}
+              >
+                {n.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
     </header>
   );
 }

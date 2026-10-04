@@ -20,7 +20,7 @@ export default function EvidenceBoard() {
   const floatKeyframes = nodes
     .map(
       (n) => `
-    @keyframes ile-float-${n.key} {
+    @keyframes leri-float-${n.key} {
       0%, 100% { transform: rotate(${n.rot}deg) translateY(0px); }
       50% { transform: rotate(${n.rot}deg) translateY(-7px); }
     }
@@ -56,7 +56,7 @@ export default function EvidenceBoard() {
               style={
                 REDUCE_MOTION
                   ? {}
-                  : { animation: `ile-string-draw 1.1s ease-out forwards`, animationDelay: `${0.15 + i * 0.08}s` }
+                  : { animation: `leri-string-draw 1.1s ease-out forwards`, animationDelay: `${0.15 + i * 0.08}s` }
               }
             />
           );
@@ -75,7 +75,7 @@ export default function EvidenceBoard() {
               backgroundColor: C.cream,
               boxShadow: "0 8px 20px -6px rgba(28,35,33,0.35)",
               transform: `rotate(${n.rot}deg)`,
-              animation: REDUCE_MOTION ? "none" : `ile-float-${n.key} 4.5s ease-in-out infinite`,
+              animation: REDUCE_MOTION ? "none" : `leri-float-${n.key} 4.5s ease-in-out infinite`,
               animationDelay: `${i * 0.35}s`,
             }}
           >

@@ -10,7 +10,7 @@ import WaitlistForm from "../components/WaitlistForm";
 
 export default function Landlords() {
   return (
-    <section className="max-w-6xl mx-auto px-5 sm:px-8 py-16">
+    <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <Reveal>
         <Eyebrow>For landlords</Eyebrow>
         <PageHeading className="mb-5">See who's really ready to rent.</PageHeading>
@@ -22,14 +22,14 @@ export default function Landlords() {
 
       <div className="grid sm:grid-cols-2 gap-5 mb-14">
         {LANDLORD_POINTS.map((p, i) => (
-          <Reveal key={p.title} delay={i * 0.08}>
+          <Reveal key={p.title} delay={i * 0.08} className="h-full">
             <Card className="flex gap-4">
               <ShieldCheck size={20} style={{ color: C.verified }} className="flex-shrink-0 mt-1" />
               <div>
-                <h3 className="font-semibold mb-2" style={{ fontFamily: "'Fraunces', serif", color: C.ink }}>
+                <h3 className="font-bold mb-2" style={{ color: C.ink }}>
                   {p.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#4B534F" }}>
+                <p className="text-[15px] leading-7" style={{ color: "#4B534F" }}>
                   {p.body}
                 </p>
               </div>
@@ -39,7 +39,7 @@ export default function Landlords() {
       </div>
 
       <Reveal>
-        <FormPanel title="List with Ilé." body="Join the landlord waitlist to get early access as we open up new areas.">
+        <FormPanel title="List with Leri." body="Join the landlord waitlist to get early access as we open up new areas.">
           <WaitlistForm />
         </FormPanel>
       </Reveal>

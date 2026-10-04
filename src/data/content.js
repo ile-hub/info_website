@@ -28,7 +28,7 @@ export const PROBLEM_POINTS = [
   },
   {
     title: "Fit matters as much as risk",
-    body: "Ilé also matches on compatibility: tenancy length, household type, and lifestyle, so landlords see who's suitable, not just who's 'safe'.",
+    body: "Leri also matches on compatibility: tenancy length, household type, and lifestyle, so landlords see who's suitable, not just who's 'safe'.",
   },
 ];
 

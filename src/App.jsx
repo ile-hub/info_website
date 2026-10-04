@@ -31,12 +31,10 @@ export default function App() {
   };
 
   return (
-    <div style={{ backgroundColor: C.paper, minHeight: "100vh" }} className="font-sans">
-      <div style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}>
-        <Nav page={page} setPage={setPage} />
-        <PageFade pageKey={page}>{pages[page]}</PageFade>
-        <Footer setPage={setPage} />
-      </div>
+    <div style={{ backgroundColor: C.paper, minHeight: "100vh", overflowX: "clip" }} className="font-sans">
+      <Nav page={page} setPage={setPage} />
+      <PageFade pageKey={page}>{pages[page]}</PageFade>
+      <Footer setPage={setPage} />
     </div>
   );
 }

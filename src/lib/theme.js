@@ -1,5 +1,5 @@
 // ============================================================
-// ILÉ — brand tokens
+// LERI — brand tokens
 // Concept: the product's core act is a renter assembling a
 // verifiable "file" of evidence. The case-file idea lives in one
 // signature illustration and a few structural details — stamps,
@@ -26,3 +26,6 @@ export const REDUCE_MOTION =
   typeof window !== "undefined" &&
   window.matchMedia &&
   window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+// Large, very soft shadow used on floating cards and panels.
+export const SOFT_SHADOW = "0 0 80px rgba(28,35,33,0.12)";
