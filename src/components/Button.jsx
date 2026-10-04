@@ -1,21 +1,23 @@
 import { ArrowRight } from "lucide-react";
 import { C } from "../lib/theme";
 
-export default function Button({ children, variant = "primary", onClick, icon = true }) {
+export default function Button({ children, variant = "primary", onClick, icon = false, className = "" }) {
   const styles =
     variant === "primary"
-      ? { backgroundColor: C.rust, color: C.paper, boxShadow: "0 8px 20px -8px rgba(181,80,46,0.55)" }
+      ? { backgroundColor: C.rust, color: C.paper }
+      : variant === "secondary"
+      ? { backgroundColor: C.kraft, color: C.ink }
       : variant === "dark"
-      ? { backgroundColor: C.ink, color: C.paper, boxShadow: "0 8px 20px -8px rgba(0,0,0,0.4)" }
+      ? { backgroundColor: C.ink, color: C.paper }
       : { backgroundColor: "transparent", color: C.ink, boxShadow: `inset 0 0 0 1.5px ${C.ink}` };
   return (
     <button
       onClick={onClick}
-      className="inline-flex items-center gap-2 px-5 py-3 rounded-lg font-medium text-sm transition-all duration-300 ease-out hover:-translate-y-0.5 hover:brightness-110 hover:shadow-xl active:translate-y-0"
+      className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0 ${className}`}
       style={styles}
     >
       {children}
-      {icon && <ArrowRight size={15} />}
+      {icon && <ArrowRight size={17} />}
     </button>
   );
 }

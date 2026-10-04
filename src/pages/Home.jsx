@@ -1,126 +1,191 @@
-import { ShieldCheck } from "lucide-react";
+import { ShieldCheck, FileStack, TrendingUp, Users, Zap, Repeat } from "lucide-react";
 import { C } from "../lib/theme";
-import { VALUE_POINTS, PROBLEM_POINTS } from "../data/content";
+import { VALUE_POINTS, PROBLEM_POINTS, LANDLORD_POINTS } from "../data/content";
 import Reveal from "../components/Reveal";
-import AmbientGlow from "../components/AmbientGlow";
+import PhoneMockup from "../components/PhoneMockup";
 import EvidenceBoard from "../components/EvidenceBoard";
-import TornDivider from "../components/TornDivider";
 import Eyebrow from "../components/Eyebrow";
 import SectionTitle from "../components/SectionTitle";
-import Stamp from "../components/Stamp";
 import Button from "../components/Button";
 import Card from "../components/Card";
+import FormPanel from "../components/FormPanel";
 import WaitlistForm from "../components/WaitlistForm";
+
+const VALUE_ICONS = [FileStack, ShieldCheck, TrendingUp];
+const LANDLORD_ICONS = [ShieldCheck, Users, Zap, Repeat];
+
+function IconBadge({ icon: Icon, tone = C.kraft, color = C.ink }) {
+  return (
+    <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0" style={{ backgroundColor: tone }}>
+      <Icon size={26} style={{ color }} strokeWidth={2.2} />
+    </div>
+  );
+}
 
 export default function Home({ setPage }) {
   return (
     <>
-      <section className="relative max-w-6xl mx-auto px-5 sm:px-8 pt-10 sm:pt-14 pb-14 grid sm:grid-cols-2 gap-10 items-center">
-        <AmbientGlow />
-        <Reveal className="relative z-10">
-          <div className="font-mono text-[11px] tracking-widest mb-3" style={{ color: C.slate }}>
-            FILE REF - ILÉ / TRUST-01
-          </div>
+      {/* Hero */}
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 pt-10 sm:pt-16 pb-10 grid lg:grid-cols-[7fr_5fr] gap-10 items-center">
+        <Reveal from="left">
+          <h2
+            className="font-extrabold uppercase leading-none mb-2"
+            style={{ color: C.rust, fontSize: "clamp(1.5rem, 3vw, 2.4rem)" }}
+          >
+            Tired of starting
+          </h2>
           <h1
-            className="font-semibold mb-6"
+            className="font-black uppercase mb-7"
             style={{
-              fontFamily: "'Fraunces', serif",
               color: C.ink,
-              fontSize: "clamp(2.4rem, 5vw, 3.4rem)",
-              lineHeight: 1.08,
-              letterSpacing: "-0.015em",
+              fontSize: "clamp(2.6rem, 6.4vw, 5.2rem)",
+              lineHeight: 0.98,
+              letterSpacing: "-0.02em",
             }}
           >
-            Rented trust shouldn't start from zero every time.
+            From zero every time you rent?
           </h1>
-          <p className="text-base sm:text-lg leading-relaxed mb-8" style={{ color: "#3E4744" }}>
-            Ilé lets renters pin up real evidence and build one verified
-            profile that travels with them everywhere they apply. Landlords
-            see the whole board, not just a credit check.
+          <p className="text-lg sm:text-xl leading-relaxed mb-9 max-w-xl" style={{ color: "#3E4744" }}>
+            Leri lets renters build one verified, evidence-based profile that
+            travels with them everywhere they apply. Landlords see the whole
+            picture, not just a credit check.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button onClick={() => setPage("renters")}>I'm renting</Button>
-            <Button variant="ghost" onClick={() => setPage("landlords")}>
+            <Button variant="secondary" onClick={() => setPage("landlords")}>
               I'm a landlord
             </Button>
           </div>
         </Reveal>
-        <Reveal delay={0.15} className="relative z-10">
-          <EvidenceBoard />
+        <Reveal from="right" delay={0.1}>
+          <PhoneMockup />
         </Reveal>
       </section>
 
-      <TornDivider />
+      {/* Waitlist */}
+      <section className="max-w-6xl mx-auto px-5 sm:px-8 py-12">
+        <Reveal>
+          <FormPanel
+            title="Join the early access list"
+            body="We're onboarding renters and landlords in stages. Join the list and we'll reach out as your spot opens up."
+          >
+            <WaitlistForm />
+          </FormPanel>
+        </Reveal>
+      </section>
 
-      <section className="max-w-6xl mx-auto px-5 sm:px-8 py-14">
-        <div className="grid sm:grid-cols-3 gap-6">
-          {PROBLEM_POINTS.map((c, i) => (
-            <Reveal key={c.title} delay={i * 0.1}>
+      {/* The idea */}
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24 grid lg:grid-cols-2 gap-12 items-center">
+        <Reveal from="left">
+          <EvidenceBoard />
+        </Reveal>
+        <Reveal from="right" delay={0.1}>
+          <Eyebrow>Why Leri</Eyebrow>
+          <SectionTitle className="mb-8">A simple idea that changes renting</SectionTitle>
+          <div className="flex flex-col gap-6">
+            {PROBLEM_POINTS.map((p, i) => (
+              <div key={p.title} className="flex gap-4">
+                <div
+                  className="w-9 h-9 rounded-full flex items-center justify-center text-sm font-extrabold flex-shrink-0"
+                  style={{ backgroundColor: C.rust, color: C.paper }}
+                >
+                  {i + 1}
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold mb-1" style={{ color: C.ink }}>
+                    {p.title}
+                  </h3>
+                  <p className="text-[15px] leading-7" style={{ color: "#4B534F" }}>
+                    {p.body}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+      </section>
+
+      {/* Why it works */}
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-12">
+        <Reveal className="text-center">
+          <Eyebrow>What makes a profile</Eyebrow>
+          <SectionTitle>Why it works</SectionTitle>
+        </Reveal>
+        <div className="grid md:grid-cols-3 gap-6 mt-10">
+          {VALUE_POINTS.map((v, i) => (
+            <Reveal key={v.title} delay={i * 0.1} className="h-full">
               <Card>
-                <h3 className="font-semibold text-lg mb-2" style={{ fontFamily: "'Fraunces', serif", color: C.ink }}>
-                  {c.title}
+                <IconBadge icon={VALUE_ICONS[i]} />
+                <h3 className="text-xl font-bold mt-6 mb-2" style={{ color: C.ink }}>
+                  {v.title}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "#4B534F" }}>
-                  {c.body}
+                <p className="text-[15px] leading-7" style={{ color: "#4B534F" }}>
+                  {v.desc}
                 </p>
               </Card>
             </Reveal>
           ))}
         </div>
+        <Reveal delay={0.3} className="mt-10 flex justify-center">
+          <Button variant="dark" onClick={() => setPage("how")}>
+            See how it works
+          </Button>
+        </Reveal>
       </section>
 
-      <section style={{ backgroundColor: C.ink }} className="py-16">
-        <div className="max-w-6xl mx-auto px-5 sm:px-8">
-          <Reveal>
-            <Eyebrow>What makes a profile</Eyebrow>
-            <SectionTitle light>Built from real evidence, not a guess</SectionTitle>
-          </Reveal>
-          <div className="grid sm:grid-cols-3 gap-4 mt-8">
-            {VALUE_POINTS.map((v, i) => (
-              <Reveal key={v.title} delay={i * 0.1}>
-                <Card dark>
-                  <div className="font-mono text-[11px] tracking-widest mb-3" style={{ color: C.rust }}>
-                    0{i + 1}
-                  </div>
-                  <h4 className="font-semibold mb-2" style={{ fontFamily: "'Fraunces', serif", color: C.paper }}>
-                    {v.title}
-                  </h4>
-                  <p className="text-sm leading-relaxed" style={{ color: C.kraft }}>
-                    {v.desc}
-                  </p>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-          <Reveal delay={0.3}>
-            <div className="mt-8">
-              <Button variant="primary" onClick={() => setPage("how")}>
-                See how it works
-              </Button>
+      {/* Mission */}
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
+        <div className="rounded-[36px] sm:rounded-[60px] px-6 py-12 sm:p-16 grid md:grid-cols-[auto_1fr] gap-10 items-center" style={{ backgroundColor: C.ink }}>
+          <Reveal from="left" className="flex justify-center">
+            <div
+              className="w-48 h-48 sm:w-60 sm:h-60 rounded-full flex items-center justify-center"
+              style={{ backgroundColor: C.rust, boxShadow: `0 0 0 10px ${C.ink}, 0 0 0 12px ${C.kraft}` }}
+            >
+              <span className="text-6xl sm:text-7xl font-black tracking-tight" style={{ color: C.paper }}>
+                Leri
+              </span>
             </div>
+          </Reveal>
+          <Reveal from="right" delay={0.1}>
+            <Eyebrow color={C.kraft}>Our story</Eyebrow>
+            <SectionTitle light>Built as a social enterprise</SectionTitle>
+            <h3 className="text-xl font-bold mb-3" style={{ color: C.kraft }}>
+              Fair access to housing, by design.
+            </h3>
+            <p className="text-[15px] leading-7 mb-8 max-w-2xl" style={{ color: "#C9CDC4" }}>
+              Too many capable renters (students, freelancers, gig workers,
+              newcomers) get filtered out by screening built around one narrow
+              kind of applicant. Leri asks a better question: how likely is this
+              tenancy to succeed?
+            </p>
+            <Button onClick={() => setPage("about")}>Read our story</Button>
           </Reveal>
         </div>
       </section>
 
-      
-
-      <section className="max-w-4xl mx-auto px-5 sm:px-8 pb-20 pt-20">
-        <Reveal>
-          <div
-            className="rounded-2xl p-8 sm:p-10"
-            style={{ backgroundColor: C.cream, boxShadow: `inset 0 0 0 1px ${C.line}, 0 20px 40px -24px rgba(28,35,33,0.25)` }}
-          >
-            <Stamp>Early access</Stamp>
-            <h3 className="text-2xl font-semibold mt-4 mb-2" style={{ fontFamily: "'Fraunces', serif", color: C.ink }}>
-              Be first in when we open access.
-            </h3>
-            <p className="text-sm mb-6" style={{ color: "#4B534F" }}>
-              We're onboarding renters and landlords in stages. Join the list
-              and we'll reach out as your spot opens up.
-            </p>
-            <WaitlistForm />
-          </div>
+      {/* For landlords */}
+      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-4">
+        <Reveal className="text-center">
+          <Eyebrow>For landlords</Eyebrow>
+          <SectionTitle>What landlords get</SectionTitle>
         </Reveal>
+        <div className="grid md:grid-cols-2 gap-6 mt-10">
+          {LANDLORD_POINTS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.08} className="h-full">
+              <Card className="flex gap-5 items-start">
+                <IconBadge icon={LANDLORD_ICONS[i]} tone={C.verified} color={C.paper} />
+                <div>
+                  <h3 className="text-lg font-bold mb-2" style={{ color: C.ink }}>
+                    {p.title}
+                  </h3>
+                  <p className="text-[15px] leading-7" style={{ color: "#4B534F" }}>
+                    {p.body}
+                  </p>
+                </div>
+              </Card>
+            </Reveal>
+          ))}
+        </div>
       </section>
     </>
   );

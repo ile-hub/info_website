@@ -5,43 +5,39 @@ import EvidenceBoard from "../components/EvidenceBoard";
 import Eyebrow from "../components/Eyebrow";
 import PageHeading from "../components/PageHeading";
 import Button from "../components/Button";
+import Card from "../components/Card";
 
 export default function HowItWorks({ setPage }) {
   return (
-    <section className="max-w-5xl mx-auto px-5 sm:px-8 py-16">
+    <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <Reveal>
         <Eyebrow>How it works</Eyebrow>
         <PageHeading className="mb-12">From first evidence to a portable trust history.</PageHeading>
       </Reveal>
 
-      <div className="flex flex-col gap-0">
+      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
         {HOW_STEPS.map((s, i) => (
-          <Reveal key={s.title} delay={i * 0.06}>
-            <div className="flex gap-5 sm:gap-8 pb-10 relative">
-              {i < HOW_STEPS.length - 1 && (
-                <div className="absolute left-[19px] top-10 bottom-0 w-px" style={{ backgroundColor: C.line }} />
-              )}
+          <Reveal key={s.title} delay={i * 0.06} className="h-full">
+            <Card>
               <div
-                className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center font-mono text-xs font-semibold z-10"
-                style={{ color: C.rust, backgroundColor: C.paper, boxShadow: `inset 0 0 0 2px ${C.rust}` }}
+                className="w-12 h-12 rounded-2xl flex items-center justify-center text-lg font-extrabold"
+                style={{ color: C.paper, backgroundColor: C.rust }}
               >
                 {i + 1}
               </div>
-              <div>
-                <h3 className="font-semibold text-lg mb-1" style={{ fontFamily: "'Fraunces', serif", color: C.ink }}>
-                  {s.title}
-                </h3>
-                <p className="text-sm leading-relaxed max-w-xl" style={{ color: "#4B534F" }}>
-                  {s.body}
-                </p>
-              </div>
-            </div>
+              <h3 className="font-bold text-xl mt-6 mb-2" style={{ color: C.ink }}>
+                {s.title}
+              </h3>
+              <p className="text-[15px] leading-7" style={{ color: "#4B534F" }}>
+                {s.body}
+              </p>
+            </Card>
           </Reveal>
         ))}
       </div>
 
       <Reveal>
-        <div className="mt-6 flex justify-center">
+        <div className="max-w-3xl mx-auto">
           <EvidenceBoard />
         </div>
       </Reveal>

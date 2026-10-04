@@ -1,24 +1,27 @@
 import { C } from "../lib/theme";
 
-// Shared rounded panel used to frame a WaitlistForm with a heading,
-// so pages don't repeat the same wrapper styling.
+// Big rounded colour block used to frame a WaitlistForm with a centered
+// heading, so pages don't repeat the same wrapper styling.
 export default function FormPanel({ title, body, children }) {
   return (
     <div
-      className="rounded-2xl p-8"
-      style={{ backgroundColor: C.cream, boxShadow: `inset 0 0 0 1px ${C.line}, 0 20px 40px -24px rgba(28,35,33,0.25)` }}
+      className="rounded-[36px] sm:rounded-[60px] px-6 py-12 sm:px-[8%] sm:py-16 text-center"
+      style={{ backgroundColor: C.kraft }}
     >
       {title && (
-        <h3 className="text-xl font-semibold mb-2" style={{ fontFamily: "'Fraunces', serif", color: C.ink }}>
+        <h3
+          className="font-extrabold uppercase leading-tight mb-3"
+          style={{ color: C.ink, fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
+        >
           {title}
         </h3>
       )}
       {body && (
-        <p className="text-sm mb-6" style={{ color: "#4B534F" }}>
+        <p className="text-base mb-8 max-w-xl mx-auto" style={{ color: C.ink }}>
           {body}
         </p>
       )}
-      {children}
+      <div className="max-w-2xl mx-auto text-left">{children}</div>
     </div>
   );
 }

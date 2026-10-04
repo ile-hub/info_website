@@ -5,12 +5,11 @@ import { C } from "../lib/theme";
 export default function PageHeading({ children, className = "" }) {
   return (
     <h1
-      className={`font-semibold ${className}`}
+      className={`font-black uppercase leading-[1.02] ${className}`}
       style={{
-        fontFamily: "'Fraunces', serif",
         color: C.ink,
-        fontSize: "clamp(2rem, 4vw, 2.75rem)",
-        letterSpacing: "-0.01em",
+        fontSize: "clamp(2.2rem, 5vw, 3.6rem)",
+        letterSpacing: "-0.015em",
       }}
     >
       {children}
