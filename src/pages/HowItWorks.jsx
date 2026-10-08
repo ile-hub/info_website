@@ -7,7 +7,7 @@ import PageHeading from "../components/PageHeading";
 import Button from "../components/Button";
 import Card from "../components/Card";
 
-export default function HowItWorks({ setPage }) {
+export default function HowItWorks() {
   return (
     <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <Reveal>
@@ -43,7 +43,7 @@ export default function HowItWorks({ setPage }) {
       </Reveal>
 
       <div className="mt-10 flex justify-center">
-        <Button onClick={() => setPage("renters")}>Start as a renter</Button>
+        <Button to="/renters">Start as a renter</Button>
       </div>
     </section>
   );

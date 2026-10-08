@@ -1,5 +1,5 @@
-import { ShieldCheck, FileStack, TrendingUp, Users, Zap, Repeat } from "lucide-react";
-import { C } from "../lib/theme";
+import { ShieldCheck, FileStack, TrendingUp, Users, Zap, Repeat, Mail } from "lucide-react";
+import { C, SOFT_SHADOW } from "../lib/theme";
 import { VALUE_POINTS, PROBLEM_POINTS, LANDLORD_POINTS } from "../data/content";
 import Reveal from "../components/Reveal";
 import PhoneMockup from "../components/PhoneMockup";
@@ -22,28 +22,30 @@ function IconBadge({ icon: Icon, tone = C.kraft, color = C.ink }) {
   );
 }
 
-export default function Home({ setPage }) {
+export default function Home() {
   return (
     <>
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 pt-10 sm:pt-16 pb-10 grid lg:grid-cols-[7fr_5fr] gap-10 items-center">
         <Reveal from="left">
-          <h2
-            className="font-extrabold uppercase leading-none mb-2"
-            style={{ color: C.rust, fontSize: "clamp(1.5rem, 3vw, 2.4rem)" }}
-          >
-            Tired of starting
-          </h2>
-          <h1
-            className="font-black uppercase mb-7"
-            style={{
-              color: C.ink,
-              fontSize: "clamp(2.6rem, 6.4vw, 5.2rem)",
-              lineHeight: 0.98,
-              letterSpacing: "-0.02em",
-            }}
-          >
-            From zero every time you rent?
+          <h1 className="font-black uppercase mb-7">
+            <span
+              className="block font-extrabold leading-none mb-2"
+              style={{ color: C.rust, fontSize: "clamp(1.5rem, 3vw, 2.4rem)" }}
+            >
+              Tired of starting
+            </span>{" "}
+            <span
+              className="block"
+              style={{
+                color: C.ink,
+                fontSize: "clamp(2.6rem, 6.4vw, 5.2rem)",
+                lineHeight: 0.98,
+                letterSpacing: "-0.02em",
+              }}
+            >
+              from zero every time you rent?
+            </span>
           </h1>
           <p className="text-lg sm:text-xl leading-relaxed mb-9 max-w-xl" style={{ color: "#3E4744" }}>
             Leri lets renters build one verified, evidence-based profile that
@@ -51,8 +53,8 @@ export default function Home({ setPage }) {
             picture, not just a credit check.
           </p>
           <div className="flex flex-wrap gap-3">
-            <Button onClick={() => setPage("renters")}>I'm renting</Button>
-            <Button variant="secondary" onClick={() => setPage("landlords")}>
+            <Button to="/renters">I'm renting</Button>
+            <Button variant="secondary" to="/landlords">
               I'm a landlord
             </Button>
           </div>
@@ -127,7 +129,7 @@ export default function Home({ setPage }) {
           ))}
         </div>
         <Reveal delay={0.3} className="mt-10 flex justify-center">
-          <Button variant="dark" onClick={() => setPage("how")}>
+          <Button variant="dark" to="/how-it-works">
             See how it works
           </Button>
         </Reveal>
@@ -158,7 +160,7 @@ export default function Home({ setPage }) {
               kind of applicant. Leri asks a better question: how likely is this
               tenancy to succeed?
             </p>
-            <Button onClick={() => setPage("about")}>Read our story</Button>
+            <Button to="/about">Read our story</Button>
           </Reveal>
         </div>
       </section>
@@ -186,6 +188,35 @@ export default function Home({ setPage }) {
             </Reveal>
           ))}
         </div>
+      </section>
+
+      {/* Get in touch */}
+      <section className="max-w-6xl mx-auto px-5 sm:px-8 pt-20">
+        <Reveal>
+          <div
+            className="rounded-[36px] sm:rounded-[60px] px-6 py-12 sm:px-16 sm:py-14 grid md:grid-cols-[1fr_auto] gap-8 items-center"
+            style={{ backgroundColor: C.cream, boxShadow: SOFT_SHADOW }}
+          >
+            <div>
+              <Eyebrow>Get in touch</Eyebrow>
+              <SectionTitle className="!mb-3">Let's talk</SectionTitle>
+              <p className="text-[15px] leading-7 max-w-xl" style={{ color: "#4B534F" }}>
+                Letting agent, housing provider, university, or writing about
+                renting? We'd love to hear from you. Questions from renters and
+                landlords are welcome too.
+              </p>
+            </div>
+            <div className="flex flex-col items-start md:items-end gap-2">
+              <Button href="mailto:hello@leri.app" variant="dark">
+                <Mail size={18} />
+                Email us
+              </Button>
+              <span className="text-sm font-medium" style={{ color: C.slate }}>
+                hello@leri.app
+              </span>
+            </div>
+          </div>
+        </Reveal>
       </section>
     </>
   );
