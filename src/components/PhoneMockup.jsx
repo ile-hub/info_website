@@ -1,13 +1,13 @@
-import { BadgeCheck, Users, Wallet, History, Anchor, Home, MapPin } from "lucide-react";
+import { BadgeCheck, Users, Wallet, History, Home, MapPin } from "lucide-react";
 import { C } from "../lib/theme";
 
-const EVIDENCE = [
-  { label: "Identity & right to rent", icon: BadgeCheck, done: true },
-  { label: "Income proof", icon: Wallet, done: true },
-  { label: "References", icon: Users, done: true },
-  { label: "Track record", icon: History, done: false },
-  { label: "Commitment", icon: Anchor, done: false },
+// Landlord's shortlist for one listing. Initials only, no real people.
+const APPLICANTS = [
+  { initials: "JK", trust: "Strong", fit: "94%", evidence: [true, true, true, true] },
+  { initials: "SM", trust: "Good", fit: "88%", evidence: [true, true, true, false] },
+  { initials: "TA", trust: "Good", fit: "81%", evidence: [true, true, false, true] },
 ];
+const EVIDENCE_ICONS = [BadgeCheck, Wallet, Users, History];
 
 const MATCHES = [
   { area: "Peckham, SE15", rooms: "2 bed flat", fit: "94%" },
@@ -29,34 +29,57 @@ function Frame({ children, className = "", style = {} }) {
   );
 }
 
-function ProfileScreen() {
+function ApplicantsScreen() {
   return (
     <div className="h-full flex flex-col">
-      <div className="px-4 pt-10 pb-5" style={{ backgroundColor: C.verified, color: C.paper }}>
-        <div className="text-[10px] font-bold uppercase tracking-[0.18em] opacity-80">Trust profile</div>
-        <div className="text-lg font-extrabold mt-1">Amara O.</div>
-        <div className="mt-3 flex items-center gap-2">
-          <div className="flex-1 h-2 rounded-full" style={{ backgroundColor: "rgba(238,240,234,0.25)" }}>
-            <div className="h-full w-3/5 rounded-full" style={{ backgroundColor: C.paper }} />
-          </div>
-          <span className="text-[11px] font-bold">Good</span>
-        </div>
+      <div className="px-4 pt-10 pb-4" style={{ backgroundColor: C.verified, color: C.paper }}>
+        <div className="text-[10px] font-bold uppercase tracking-[0.18em] opacity-80">Your listing</div>
+        <div className="text-lg font-extrabold mt-1 leading-tight">2 bed flat, SE15</div>
+        <div className="mt-2 text-[11px] font-semibold opacity-90">3 applicants shortlisted</div>
       </div>
       <div className="flex-1 px-3 py-3 flex flex-col gap-2">
-        {EVIDENCE.map(({ label, icon: Icon, done }) => (
-          <div key={label} className="flex items-center gap-2.5 rounded-xl px-3 py-2.5" style={{ backgroundColor: C.cream }}>
-            <Icon size={14} style={{ color: done ? C.verified : C.kraftDark }} />
-            <span className="flex-1 text-[11px] font-semibold" style={{ color: C.ink }}>
-              {label}
-            </span>
-            <span
-              className="w-4 h-4 rounded-full"
-              style={done ? { backgroundColor: C.verified } : { boxShadow: `inset 0 0 0 1.5px ${C.kraftDark}` }}
-            />
+        {APPLICANTS.map((a) => (
+          <div key={a.initials} className="rounded-xl px-3 py-3" style={{ backgroundColor: C.cream }}>
+            <div className="flex items-center gap-2.5">
+              <div
+                className="w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-extrabold flex-shrink-0"
+                style={{ backgroundColor: C.kraft, color: C.ink }}
+              >
+                {a.initials}
+              </div>
+              <div className="flex-1 min-w-0">
+                <div className="text-[11px] font-bold" style={{ color: C.ink }}>
+                  Trust: {a.trust}
+                </div>
+                <div className="flex items-center gap-1 mt-1">
+                  {EVIDENCE_ICONS.map((Icon, i) => (
+                    <Icon key={i} size={11} style={{ color: a.evidence[i] ? C.verified : C.kraftDark }} />
+                  ))}
+                  <span className="text-[9px] font-semibold ml-0.5 whitespace-nowrap" style={{ color: C.slate }}>
+                    {a.evidence.filter(Boolean).length}/4 verified
+                  </span>
+                </div>
+              </div>
+              <div className="text-right">
+                <div className="text-[13px] font-extrabold leading-none" style={{ color: C.verified }}>
+                  {a.fit}
+                </div>
+                <div className="text-[9px] font-semibold mt-0.5" style={{ color: C.slate }}>
+                  fit
+                </div>
+              </div>
+            </div>
           </div>
         ))}
+        <div
+          className="flex items-start gap-2 rounded-xl px-3 py-2.5 text-[10px] font-semibold leading-snug"
+          style={{ boxShadow: `inset 0 0 0 1px ${C.line}`, color: C.slate }}
+        >
+          <BadgeCheck size={13} className="flex-shrink-0 mt-px" style={{ color: C.verified }} />
+          Every applicant has a verified ID and right to rent.
+        </div>
         <div className="mt-auto rounded-xl py-2.5 text-center text-[11px] font-bold" style={{ backgroundColor: C.rust, color: C.paper }}>
-          Add evidence
+          Book viewings
         </div>
       </div>
     </div>
@@ -99,8 +122,9 @@ function MatchesScreen() {
   );
 }
 
-// Two overlapping app screens on a warm backdrop circle — the hero's
-// product shot, drawn in CSS so it stays on-palette.
+// Two overlapping app screens on a warm backdrop circle (a renter's
+// matches behind, a landlord's shortlist in front), drawn in CSS so it
+// stays on-palette.
 export default function PhoneMockup() {
   return (
     <div className="relative flex justify-center items-center py-6 min-h-[480px] sm:min-h-[560px]">
@@ -114,7 +138,7 @@ export default function PhoneMockup() {
           <MatchesScreen />
         </Frame>
         <Frame className="rotate-[3deg]">
-          <ProfileScreen />
+          <ApplicantsScreen />
         </Frame>
       </div>
     </div>

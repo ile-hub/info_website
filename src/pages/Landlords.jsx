@@ -39,8 +39,8 @@ export default function Landlords() {
       </div>
 
       <Reveal>
-        <FormPanel title="List with Leri." body="Join the landlord waitlist to get early access as we open up new areas.">
-          <WaitlistForm />
+        <FormPanel title="List with Leri." body="Join the landlord waitlist and we'll email you as soon as you can start listing.">
+          <WaitlistForm defaultRole="landlord" />
         </FormPanel>
       </Reveal>
     </section>

@@ -1,9 +1,9 @@
-import { Home as HomeIcon, Users, Building2, Workflow, Info } from "lucide-react";
+import { pathFor } from "./site";
 
 export const NAV = [
-  { key: "home", label: "Home", icon: HomeIcon },
-  { key: "renters", label: "For Renters", icon: Users },
-  { key: "landlords", label: "For Landlords", icon: Building2 },
-  { key: "how", label: "How It Works", icon: Workflow },
-  { key: "about", label: "About", icon: Info },
-];
+  { key: "home", label: "Home" },
+  { key: "renters", label: "For Renters" },
+  { key: "landlords", label: "For Landlords" },
+  { key: "how", label: "How It Works" },
+  { key: "about", label: "About" },
+].map((n) => ({ ...n, path: pathFor(n.key) }));

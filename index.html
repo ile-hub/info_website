@@ -1,12 +1,41 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-GB">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Leri: A trust platform for renting</title>
+    <script>document.documentElement.classList.add("js")</script>
+    <!--head-->
+    <meta name="theme-color" content="#EEF0EA" />
+    <link rel="icon" href="/favicon-48.png" sizes="48x48" type="image/png" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://leri.app/#organization",
+            "name": "Leri",
+            "url": "https://leri.app/",
+            "logo": "https://leri.app/apple-touch-icon.png",
+            "email": "hello@leri.app",
+            "description": "A trust and compatibility platform for renting, built as a social enterprise."
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://leri.app/#website",
+            "name": "Leri",
+            "url": "https://leri.app/",
+            "inLanguage": "en-GB",
+            "publisher": { "@id": "https://leri.app/#organization" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root"><!--app--></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

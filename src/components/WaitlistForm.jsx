@@ -1,18 +1,27 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import { Check } from "lucide-react";
 import { C, REDUCE_MOTION } from "../lib/theme";
 import { joinWaitlist } from "../lib/waitlist";
 
-export default function WaitlistForm() {
-  const [role, setRole] = useState("renter");
+export default function WaitlistForm({ defaultRole = "renter" }) {
+  const [role, setRole] = useState(defaultRole);
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle | sending | done
   const [error, setError] = useState("");
   const submitted = status === "done";
+  // Spam traps: bots tend to fill every field and submit instantly. If
+  // either trap trips, show success without saving anything.
+  const [trap, setTrap] = useState("");
+  const startedAt = useRef(Date.now());
 
   async function handleSubmit(e) {
     e.preventDefault();
     if (!email || status === "sending") return;
+    if (trap || Date.now() - startedAt.current < 1500) {
+      setStatus("done");
+      return;
+    }
     setStatus("sending");
     setError("");
     try {
@@ -66,8 +75,16 @@ export default function WaitlistForm() {
           </button>
         ))}
       </div>
+      <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+        <label>
+          Leave this field empty
+          <input type="text" name="company" tabIndex={-1} autoComplete="off" value={trap} onChange={(e) => setTrap(e.target.value)} />
+        </label>
+      </div>
       <input
         type="email"
+        name="email"
+        autoComplete="email"
         required
         placeholder="Your email address"
         aria-label="Email address"
@@ -90,7 +107,11 @@ export default function WaitlistForm() {
         </button>
       </div>
       <p className="mt-4 text-center text-xs" style={{ color: C.slate }}>
-        We'll only email you about Leri's launch. Unsubscribe anytime.
+        We'll only email you about Leri's launch. Unsubscribe anytime. See our{" "}
+        <Link to="/privacy" className="underline underline-offset-2">
+          privacy notice
+        </Link>
+        .
       </p>
     </form>
   );
