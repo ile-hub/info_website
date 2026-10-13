@@ -12,7 +12,7 @@ export default function HowItWorks() {
     <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <Reveal>
         <Eyebrow>How it works</Eyebrow>
-        <PageHeading className="mb-12">From first evidence to a portable trust history.</PageHeading>
+        <PageHeading className="mb-12">Three steps to better renting.</PageHeading>
       </Reveal>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">

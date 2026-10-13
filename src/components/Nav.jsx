@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { C } from "../lib/theme";
 import { NAV } from "../data/nav";
 import Button from "./Button";
+import Logo from "./Logo";
 
 // Single-row sticky header: logo, inline links, CTA. Links collapse into
 // a dropdown menu on small screens.
@@ -29,14 +30,11 @@ export default function Nav() {
       }}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-6">
-        <Link to="/" className="flex items-baseline gap-1 group" aria-label="Leri home">
-          <span
-            className="text-3xl font-black tracking-tight transition-transform duration-300 group-hover:-translate-y-0.5 inline-block"
-            style={{ color: C.ink }}
-          >
-            Leri
-          </span>
-          <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: C.rust }} />
+        <Link to="/" className="flex shrink-0 items-center group" aria-label="Leri home">
+          <Logo
+            size={64}
+            className="h-16 w-16 object-contain transition-transform duration-300 group-hover:-translate-y-0.5"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8" aria-label="Main">

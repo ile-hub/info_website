@@ -3,21 +3,26 @@ import { Mail } from "lucide-react";
 import { C } from "../lib/theme";
 import { NAV } from "../data/nav";
 import Button from "./Button";
+import Logo from "./Logo";
 
 export default function Footer() {
   return (
     <footer style={{ backgroundColor: C.ink }} className="mt-24 rounded-t-[36px] sm:rounded-t-[60px]">
       <div className="max-w-7xl mx-auto px-5 sm:px-8 pt-16 pb-12 grid gap-12 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <div className="flex items-baseline gap-1 mb-4">
-            <span className="text-4xl font-black tracking-tight" style={{ color: C.paper }}>
-              Leri
-            </span>
-            <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: C.rust }} />
-          </div>
+          <Link
+            to="/"
+            aria-label="Leri home"
+            className="inline-flex mb-4"
+          >
+            <Logo
+              src="/Pristine_Leri_Logo.png"
+              size={96}
+              className="h-24 w-24 object-contain"
+            />
+          </Link>
           <p className="text-[15px] leading-7 max-w-sm" style={{ color: C.kraft }}>
-            A trust and compatibility platform for renting, built so people
-            don't have to start from zero every time they move.
+            Your space for better matches, meaningful connections and a simpler way to rent.
           </p>
         </div>
         <div>
@@ -29,7 +34,7 @@ export default function Footer() {
               <Link
                 key={n.key}
                 to={n.path}
-                className="w-fit transition-colors duration-300 hover:text-[#B5502E]"
+                className="w-fit transition-colors duration-300 hover:text-[#D5E5DA]"
                 style={{ color: C.kraft }}
               >
                 {n.label}
@@ -43,7 +48,7 @@ export default function Footer() {
           </div>
           <a
             href="mailto:hello@leri.app"
-            className="inline-flex items-center gap-2 text-[15px] transition-colors duration-300 hover:text-[#B5502E]"
+            className="inline-flex items-center gap-2 text-[15px] transition-colors duration-300 hover:text-[#D5E5DA]"
             style={{ color: C.kraft }}
           >
             <Mail size={16} />
@@ -60,7 +65,7 @@ export default function Footer() {
       >
         <span>
           © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Leri. All rights reserved. ·{" "}
-          <Link to="/privacy" className="underline underline-offset-2 transition-colors duration-300 hover:text-[#B5502E]">
+          <Link to="/privacy" className="underline underline-offset-2 transition-colors duration-300 hover:text-[#D5E5DA]">
             Privacy
           </Link>
         </span>
