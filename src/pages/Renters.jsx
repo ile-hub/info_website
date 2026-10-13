@@ -1,3 +1,4 @@
+import BrandDoodle from "../components/BrandDoodle";
 import { C } from "../lib/theme";
 import { VALUE_POINTS } from "../data/content";
 import Reveal from "../components/Reveal";
@@ -12,8 +13,13 @@ export default function Renters() {
   return (
     <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <Reveal>
+        <div className="brand-heading-row">
+          <div className="min-w-0 flex-1">
         <Eyebrow>For renters</Eyebrow>
         <PageHeading className="mb-5">Tired of applying for homes you never stood a chance of getting?</PageHeading>
+          </div>
+          <BrandDoodle variant="renters" />
+        </div>
           <p className="text-base sm:text-lg leading-relaxed mb-2 max-w-6xl" style={{ color: "#3E4744" }}>
           Endless listings, rigid requirements, pointless viewings and unanswered applications. Renting shouldn't feel like a battlefield.
         </p>

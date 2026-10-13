@@ -1,3 +1,4 @@
+import BrandDoodle from "../components/BrandDoodle";
 import { ShieldCheck, FileStack, TrendingUp, Users, Zap, Repeat, Mail } from "lucide-react";
 import { C, SOFT_SHADOW } from "../lib/theme";
 import { VALUE_POINTS, PROBLEM_POINTS, LANDLORD_POINTS } from "../data/content";
@@ -62,7 +63,10 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal from="right" delay={0.1}>
-          <PhoneMockup />
+          <div className="relative">
+            <div className="brand-phone-doodle"><BrandDoodle variant="home" /></div>
+            <PhoneMockup />
+          </div>
         </Reveal>
       </section>
 

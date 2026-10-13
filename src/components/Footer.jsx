@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Mail } from "lucide-react";
+import { Instagram, Mail } from "lucide-react";
 import { C } from "../lib/theme";
 import { NAV } from "../data/nav";
 import Button from "./Button";
@@ -54,6 +54,18 @@ export default function Footer() {
             <Mail size={16} />
             hello@leri.app
           </a>
+          <div className="mt-5">
+            <a
+              href="https://www.instagram.com/leri.app?obrf=MWRkODFqYTIwbTV4dQ=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-[15px] transition-opacity hover:opacity-80"
+              style={{ color: C.kraft }}
+            >
+              <Instagram size={18} aria-hidden="true" />
+              Instagram
+            </a>
+          </div>
           <div className="mt-6">
             <Button to="/waitlist">Join the waitlist</Button>
           </div>

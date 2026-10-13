@@ -61,3 +61,41 @@ h1, h2, h3, h4 {
     transition-duration: 0.001ms !important;
   }
 }
+
+/* Small yellow strokes connect page labels to the illustrated brand style. */
+.brand-eyebrow,
+.brand-panel-title {
+  position: relative;
+  display: inline-block;
+}
+.brand-eyebrow::after,
+.brand-panel-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: min(100%, 104px);
+  height: 4px;
+  background: #FFD055;
+  border-radius: 65% 35% 55% 40%;
+  transform: rotate(-1deg);
+}
+.brand-panel-title::after {
+  left: 50%;
+  width: 80px;
+  transform: translateX(-50%) rotate(-2deg);
+}
+
+.brand-doodle { display: block; width: 140px; height: auto; margin: 0 0 1rem; }
+@media (max-width: 639px) { .brand-doodle { width: 110px; margin-bottom: .75rem; } }
+
+.brand-heading-row { display: flex; align-items: center; gap: 2rem; margin-bottom: 1rem; }
+.brand-heading-row > .brand-doodle { flex: 0 0 140px; margin: 0; }
+.brand-phone-doodle { position: absolute; top: -2rem; right: 0; transform: rotate(9deg); z-index: 1; pointer-events: none; }
+.brand-phone-doodle .brand-doodle { width: 110px; margin: 0; }
+@media (max-width: 639px) {
+  .brand-heading-row { gap: .75rem; align-items: flex-start; }
+  .brand-heading-row > .brand-doodle { flex-basis: 65px; width: 65px; margin-top: .25rem; }
+  .brand-phone-doodle { top: -1rem; right: .5rem; }
+  .brand-phone-doodle .brand-doodle { width: 80px; }
+}

@@ -37,7 +37,7 @@ export default function Nav() {
           />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main">
+        <nav className="hidden lg:flex items-center gap-5" aria-label="Main">
           {NAV.map((n) => (
             <NavLink
               key={n.key}
@@ -51,7 +51,7 @@ export default function Nav() {
                   {n.label}
                   <span
                     className="absolute left-0 -bottom-0.5 h-0.5 rounded-full transition-all duration-300"
-                    style={{ width: isActive ? "100%" : 0, backgroundColor: C.rust }}
+                    style={{ width: isActive ? "100%" : 0, backgroundColor: C.yellow }}
                   />
                 </>
               )}
@@ -66,7 +66,7 @@ export default function Nav() {
             </Button>
           </div>
           <button
-            className="md:hidden p-2 rounded-lg"
+            className="lg:hidden p-2 rounded-lg"
             style={{ color: C.ink }}
             onClick={() => setOpen((o) => !o)}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -78,7 +78,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden px-5 pb-5" style={{ backgroundColor: C.paper }}>
+        <div className="lg:hidden px-5 pb-5" style={{ backgroundColor: C.paper }}>
           <div className="flex flex-col rounded-2xl overflow-hidden" style={{ backgroundColor: C.ink }}>
             {[...NAV, { key: "waitlist", label: "Join the waitlist", path: "/waitlist" }].map((n) => (
               <NavLink

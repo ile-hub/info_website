@@ -11,11 +11,12 @@ import Renters from "./pages/Renters";
 import Landlords from "./pages/Landlords";
 import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
+import Events from "./pages/Events";
 import Waitlist from "./pages/Waitlist";
 import Privacy from "./pages/Privacy";
 import NotFound from "./pages/NotFound";
 
-const PAGES = { home: Home, renters: Renters, landlords: Landlords, how: HowItWorks, about: About, waitlist: Waitlist, privacy: Privacy };
+const PAGES = { home: Home, renters: Renters, landlords: Landlords, how: HowItWorks, about: About, events: Events, waitlist: Waitlist, privacy: Privacy };
 
 // Each page has its own URL (see data/site.js). At build time every route
 // is prerendered to static HTML (scripts/prerender.js) and hydrated here.

@@ -46,6 +46,13 @@ export const ROUTES = [
     priority: "0.6",
   },
   {
+    key: "events",
+    path: "/whats-on",
+    title: "What’s On | Ideas, conversations and better renting | Leri",
+    description: "Join renters, landlords and changemakers at Leri events. Discover upcoming conversations and explore past events about better renting.",
+    priority: "0.7",
+  },
+  {
     key: "waitlist",
     path: "/waitlist",
     title: "Join the Waitlist | Get early access to Leri",

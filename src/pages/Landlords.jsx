@@ -1,3 +1,4 @@
+import BrandDoodle from "../components/BrandDoodle";
 import { ShieldCheck } from "lucide-react";
 import { C } from "../lib/theme";
 import { LANDLORD_POINTS } from "../data/content";
@@ -12,8 +13,13 @@ export default function Landlords() {
   return (
     <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <Reveal>
+        <div className="brand-heading-row">
+          <div className="min-w-0 flex-1">
         <Eyebrow>For landlords</Eyebrow>
         <PageHeading className="mb-5">Your property. Your preferences. Better matches.</PageHeading>
+          </div>
+          <BrandDoodle variant="landlords" />
+        </div>
         <p className="text-base sm:text-lg leading-relaxed mb-5 max-w-6xl" style={{ color: "#3E4744" }}>
           Tell us what matters to you, from tenancy expectations to acceptable
           evidence of suitability. Leri helps you find renters who align with
