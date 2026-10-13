@@ -1,8 +1,8 @@
-import { BadgeCheck, Users, Wallet, History, Anchor } from "lucide-react";
+import { BadgeCheck, FileText, Users, GitBranch } from "lucide-react";
 import { C, REDUCE_MOTION } from "../lib/theme";
 import { EVIDENCE_NODES } from "../data/content";
 
-const ICONS = { Users, Wallet, History, Anchor };
+const ICONS = { FileText, Users, GitBranch, BadgeCheck };
 
 // Signature element: The Evidence Board.
 // A corkboard with pinned evidence cards, connected by string,
@@ -103,7 +103,7 @@ export default function EvidenceBoard() {
       >
         <BadgeCheck size={20} style={{ color: C.paper }} className="mb-1" />
         <div className="font-mono text-[9px] uppercase tracking-widest leading-tight px-2" style={{ color: C.paper }}>
-          Trust Profile
+          Your Profile
         </div>
       </div>
 

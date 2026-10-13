@@ -1,3 +1,4 @@
+import BrandDoodle from "../components/BrandDoodle";
 import { ShieldCheck, FileStack, TrendingUp, Users, Zap, Repeat, Mail } from "lucide-react";
 import { C, SOFT_SHADOW } from "../lib/theme";
 import { VALUE_POINTS, PROBLEM_POINTS, LANDLORD_POINTS } from "../data/content";
@@ -10,8 +11,9 @@ import Button from "../components/Button";
 import Card from "../components/Card";
 import FormPanel from "../components/FormPanel";
 import WaitlistForm from "../components/WaitlistForm";
+import Logo from "../components/Logo";
 
-const VALUE_ICONS = [FileStack, ShieldCheck, TrendingUp];
+const VALUE_ICONS = [FileStack, ShieldCheck, TrendingUp, Repeat];
 const LANDLORD_ICONS = [ShieldCheck, Users, Zap, Repeat];
 
 function IconBadge({ icon: Icon, tone = C.kraft, color = C.ink }) {
@@ -28,29 +30,30 @@ export default function Home() {
       {/* Hero */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 pt-10 sm:pt-16 pb-10 grid lg:grid-cols-[7fr_5fr] gap-10 items-center">
         <Reveal from="left">
-          <h1 className="font-black uppercase mb-7">
+          <h1 className="font-black uppercase mb-7" style={{ textWrap: "balance" }}>
             <span
-              className="block font-extrabold leading-none mb-2"
-              style={{ color: C.rust, fontSize: "clamp(1.5rem, 3vw, 2.4rem)" }}
+              className="block font-extrabold mb-4"
+              style={{ color: C.rust, fontSize: "clamp(1.125rem, 2vw, 1.5rem)", lineHeight: 1.3 }}
             >
-              Tired of starting
+              Renting is more than a transaction
             </span>{" "}
             <span
               className="block"
               style={{
                 color: C.ink,
-                fontSize: "clamp(2.6rem, 6.4vw, 5.2rem)",
-                lineHeight: 0.98,
+                fontSize: "clamp(2rem, 4.2vw, 3.5rem)",
+                lineHeight: 1.08,
                 letterSpacing: "-0.02em",
               }}
             >
-              from zero every time you rent?
+              It's a relationship that deserves the right start.
             </span>
           </h1>
           <p className="text-lg sm:text-xl leading-relaxed mb-9 max-w-xl" style={{ color: "#3E4744" }}>
-            Leri lets renters build one verified, evidence-based profile that
-            travels with them everywhere they apply. Landlords see the whole
-            picture, not just a credit check.
+            Leri puts people first & takes the hassle out of renting through 
+            personalised matching and flexible ways to demonstrate suitability, 
+            helping landlords and renters see the fuller picture, find the right
+             fit and connect with confidence.
           </p>
           <div className="flex flex-wrap gap-3">
             <Button to="/renters">I'm renting</Button>
@@ -60,7 +63,10 @@ export default function Home() {
           </div>
         </Reveal>
         <Reveal from="right" delay={0.1}>
-          <PhoneMockup />
+          <div className="relative">
+            <div className="brand-phone-doodle"><BrandDoodle variant="home" /></div>
+            <PhoneMockup />
+          </div>
         </Reveal>
       </section>
 
@@ -110,7 +116,7 @@ export default function Home() {
       {/* Why it works */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 py-12">
         <Reveal className="text-center">
-          <Eyebrow>What makes a profile</Eyebrow>
+          <Eyebrow>A little more understanding. A lot less guesswork.</Eyebrow>
           <SectionTitle>Why it works</SectionTitle>
         </Reveal>
         <div className="grid md:grid-cols-3 gap-6 mt-10">
@@ -137,36 +143,43 @@ export default function Home() {
 
       {/* Mission */}
       <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16 sm:py-24">
-        <div className="rounded-[36px] sm:rounded-[60px] px-6 py-12 sm:p-16 grid md:grid-cols-[auto_1fr] gap-10 items-center" style={{ backgroundColor: C.ink }}>
-          <Reveal from="left" className="flex justify-center">
+        <div className="rounded-[36px] sm:rounded-[60px] px-6 py-12 sm:p-16 grid lg:grid-cols-[auto_minmax(0,1fr)] gap-10 lg:gap-14 items-start" style={{ backgroundColor: C.ink }}>
+          <Reveal from="left" className="flex justify-center lg:pt-10">
             <div
               className="w-48 h-48 sm:w-60 sm:h-60 rounded-full flex items-center justify-center"
-              style={{ backgroundColor: C.rust, boxShadow: `0 0 0 10px ${C.ink}, 0 0 0 12px ${C.kraft}` }}
+              style={{ backgroundColor: C.paper, boxShadow: `0 0 0 10px ${C.ink}, 0 0 0 12px ${C.kraft}` }}
             >
-              <span className="text-6xl sm:text-7xl font-black tracking-tight" style={{ color: C.paper }}>
-                Leri
-              </span>
+              <Logo
+                size={192}
+                className="h-40 w-40 sm:h-48 sm:w-48 object-contain"
+              />
             </div>
           </Reveal>
           <Reveal from="right" delay={0.1}>
             <Eyebrow color={C.kraft}>Our story</Eyebrow>
-            <SectionTitle light>Built as a social enterprise</SectionTitle>
-            <h3 className="text-xl font-bold mb-3" style={{ color: C.kraft }}>
-              Fair access to housing, by design.
-            </h3>
-            <p className="text-[15px] leading-7 mb-8 max-w-2xl" style={{ color: "#C9CDC4" }}>
-              Too many capable renters (students, freelancers, gig workers,
-              newcomers) get filtered out by screening built around one narrow
-              kind of applicant. Leri asks a better question: how likely is this
-              tenancy to succeed?
+            <SectionTitle light className="!mb-6">The right fit changes everything.</SectionTitle>
+            <p className="text-[15px] leading-7 mb-4 max-w-2xl" style={{ color: "#C9CDC4" }}>
+              We started by listening. To renters tired of being reduced to rigid checklists. To landlords tired of void periods, unsuitable applications and difficult renter situations.
             </p>
-            <Button to="/about">Read our story</Button>
+            <p className="text-[15px] leading-7 mb-4 max-w-2xl" style={{ color: "#C9CDC4" }}>
+              From campaigning nationally to building a digital efficient solution.
+            </p>
+            <p className="text-[15px] leading-7 mb-4 max-w-2xl" style={{ color: "#C9CDC4" }}>
+              We're bringing together trustworthy landlords and capable renters who might otherwise miss each other:  from students and first-time renters to graduates, creatives, new to country professionals and self-employed people. Because suitability shouldn't be defined by one type of income, career or rental history.
+            </p>
+            <p className="text-[15px] leading-7 mb-4 max-w-2xl" style={{ color: "#C9CDC4" }}>
+              We're building a community where the right people can find each other. And we're building it with you, not just for you.
+            </p>
+        
+            <div className="mt-7">
+              <Button to="/about">Read our story</Button>
+            </div>
           </Reveal>
         </div>
       </section>
 
-      {/* For landlords */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-4">
+      {/* For landlords — temporarily hidden; remove hidden to restore. */}
+      <section hidden className="max-w-7xl mx-auto px-5 sm:px-8 py-4">
         <Reveal className="text-center">
           <Eyebrow>For landlords</Eyebrow>
           <SectionTitle>What landlords get</SectionTitle>
@@ -191,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Get in touch */}
-      <section className="max-w-6xl mx-auto px-5 sm:px-8 pt-20">
+      <section className="max-w-7xl mx-auto px-5 sm:px-8">
         <Reveal>
           <div
             className="rounded-[36px] sm:rounded-[60px] px-6 py-12 sm:px-16 sm:py-14 grid md:grid-cols-[1fr_auto] gap-8 items-center"

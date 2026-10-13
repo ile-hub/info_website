@@ -10,10 +10,10 @@ export default function FormPanel({ title, body, children }) {
     >
       {title && (
         <h3
-          className="font-extrabold uppercase leading-tight mb-3"
+          className="font-extrabold uppercase leading-tight mb-6"
           style={{ color: C.ink, fontSize: "clamp(1.6rem, 3vw, 2.4rem)" }}
         >
-          {title}
+          <span className="brand-panel-title">{title}</span>
         </h3>
       )}
       {body && (

@@ -1,19 +1,5 @@
-import { BadgeCheck, Users, Wallet, History, Home, MapPin } from "lucide-react";
+import { BadgeCheck, CalendarDays, CheckCheck, MapPin, Send } from "lucide-react";
 import { C } from "../lib/theme";
-
-// Landlord's shortlist for one listing. Initials only, no real people.
-const APPLICANTS = [
-  { initials: "JK", trust: "Strong", fit: "94%", evidence: [true, true, true, true] },
-  { initials: "SM", trust: "Good", fit: "88%", evidence: [true, true, true, false] },
-  { initials: "TA", trust: "Good", fit: "81%", evidence: [true, true, false, true] },
-];
-const EVIDENCE_ICONS = [BadgeCheck, Wallet, Users, History];
-
-const MATCHES = [
-  { area: "Peckham, SE15", rooms: "2 bed flat", fit: "94%" },
-  { area: "Leyton, E10", rooms: "1 bed flat", fit: "89%" },
-  { area: "Brixton, SW2", rooms: "Room in house", fit: "82%" },
-];
 
 function Frame({ children, className = "", style = {} }) {
   return (
@@ -29,101 +15,66 @@ function Frame({ children, className = "", style = {} }) {
   );
 }
 
-function ApplicantsScreen() {
+function ViewingChatScreen() {
+  const messages = [
+    { role: "Landlord", text: "Hi Jamie! I'd love to show you the flat. Are you free for a viewing on Saturday?" },
+    { role: "Renter", text: "Hi Alex, that sounds great! Would 11am work?" },
+    { role: "Landlord", text: "Absolutely. I'll meet you at the entrance. Looking forward to meeting you!" },
+    { role: "Renter", text: "Perfect, see you then. Thank you!" },
+  ];
   return (
     <div className="h-full flex flex-col">
-      <div className="px-4 pt-10 pb-4" style={{ backgroundColor: C.verified, color: C.paper }}>
-        <div className="text-[10px] font-bold uppercase tracking-[0.18em] opacity-80">Your listing</div>
-        <div className="text-lg font-extrabold mt-1 leading-tight">2 bed flat, SE15</div>
-        <div className="mt-2 text-[11px] font-semibold opacity-90">3 applicants shortlisted</div>
+      <div className="px-4 pt-10 pb-3" style={{ backgroundColor: C.verified, color: C.paper }}>
+        <div className="text-[9px] font-bold uppercase tracking-[0.16em] opacity-80">Your conversations</div>
+        <div className="flex items-center gap-2 mt-2">
+          <div className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold" style={{ backgroundColor: C.kraft, color: C.ink }}>JK</div>
+          <div><div className="text-sm font-bold">Jamie K.</div><div className="text-[10px] opacity-90">Renter · 2 bed flat, SE15</div></div>
+        </div>
       </div>
       <div className="flex-1 px-3 py-3 flex flex-col gap-2">
-        {APPLICANTS.map((a) => (
-          <div key={a.initials} className="rounded-xl px-3 py-3" style={{ backgroundColor: C.cream }}>
-            <div className="flex items-center gap-2.5">
-              <div
-                className="w-8 h-8 rounded-full flex items-center justify-center text-[11px] font-extrabold flex-shrink-0"
-                style={{ backgroundColor: C.kraft, color: C.ink }}
-              >
-                {a.initials}
-              </div>
-              <div className="flex-1 min-w-0">
-                <div className="text-[11px] font-bold" style={{ color: C.ink }}>
-                  Trust: {a.trust}
-                </div>
-                <div className="flex items-center gap-1 mt-1">
-                  {EVIDENCE_ICONS.map((Icon, i) => (
-                    <Icon key={i} size={11} style={{ color: a.evidence[i] ? C.verified : C.kraftDark }} />
-                  ))}
-                  <span className="text-[9px] font-semibold ml-0.5 whitespace-nowrap" style={{ color: C.slate }}>
-                    {a.evidence.filter(Boolean).length}/4 verified
-                  </span>
-                </div>
-              </div>
-              <div className="text-right">
-                <div className="text-[13px] font-extrabold leading-none" style={{ color: C.verified }}>
-                  {a.fit}
-                </div>
-                <div className="text-[9px] font-semibold mt-0.5" style={{ color: C.slate }}>
-                  fit
-                </div>
-              </div>
-            </div>
+        <div className="text-center text-[9px] mb-1" style={{ color: C.slate }}>Today</div>
+        {messages.map((message, i) => (
+          <div key={i} className={`max-w-[88%] rounded-2xl px-2.5 py-2 ${message.role === "Landlord" ? "self-end rounded-br-sm" : "self-start rounded-bl-sm"}`} style={{ backgroundColor: message.role === "Landlord" ? C.verified : C.cream, color: message.role === "Landlord" ? C.paper : C.ink }}>
+            <div className="text-[8px] font-bold opacity-75 mb-0.5">{message.role}</div>
+            <p className="text-[10px] leading-snug">{message.text}</p>
           </div>
         ))}
-        <div
-          className="flex items-start gap-2 rounded-xl px-3 py-2.5 text-[10px] font-semibold leading-snug"
-          style={{ boxShadow: `inset 0 0 0 1px ${C.line}`, color: C.slate }}
-        >
-          <BadgeCheck size={13} className="flex-shrink-0 mt-px" style={{ color: C.verified }} />
-          Every applicant has a verified ID and right to rent.
+        <div className="flex items-center gap-2 rounded-xl px-2.5 py-2 mt-1" style={{ backgroundColor: C.kraft, color: C.verified }}>
+          <CalendarDays size={16} className="shrink-0" />
+          <div><div className="text-[10px] font-bold">Viewing confirmed</div><div className="text-[9px]">Saturday · 11:00 AM</div></div>
+          <CheckCheck size={14} className="ml-auto shrink-0" />
         </div>
-        <div className="mt-auto rounded-xl py-2.5 text-center text-[11px] font-bold" style={{ backgroundColor: C.rust, color: C.paper }}>
-          Book viewings
-        </div>
+      </div>
+      <div className="mx-3 mb-3 rounded-full px-3 py-2 flex items-center justify-between" style={{ backgroundColor: C.cream, color: C.slate }}>
+        <span className="text-[10px]">Write a message…</span><Send size={13} style={{ color: C.verified }} />
       </div>
     </div>
   );
 }
 
-function MatchesScreen() {
+function RenterProfileScreen() {
   return (
-    <div className="h-full flex flex-col px-3 pt-10">
-      <div className="px-1 text-[10px] font-bold uppercase tracking-[0.18em]" style={{ color: C.rust }}>
-        Your matches
+    <div className="h-full flex flex-col">
+      <div className="px-4 pt-10 pb-4" style={{ backgroundColor: C.kraft, color: C.ink }}>
+        <div className="text-[9px] font-bold uppercase tracking-[0.16em]" style={{ color: C.verified }}>Renter profile</div>
+        <div className="w-12 h-12 mt-3 mb-2 rounded-full flex items-center justify-center text-lg font-extrabold" style={{ backgroundColor: C.verified, color: C.paper }}>JK</div>
+        <div className="text-lg font-extrabold">Jamie K.</div>
+        <div className="flex items-center gap-1 text-[10px] mt-1"><MapPin size={10} />Looking in Scotland</div>
+        <div className="flex items-center gap-1 text-[9px] font-semibold mt-2" style={{ color: C.verified }}><BadgeCheck size={12} />Identity verified</div>
       </div>
-      <div className="px-1 text-lg font-extrabold mb-3" style={{ color: C.ink }}>
-        Homes that fit
-      </div>
-      <div className="flex flex-col gap-2.5">
-        {MATCHES.map((m) => (
-          <div key={m.area} className="rounded-xl overflow-hidden" style={{ backgroundColor: C.cream }}>
-            <div className="h-14 flex items-center justify-center" style={{ backgroundColor: C.kraft }}>
-              <Home size={20} style={{ color: C.kraftDark }} />
-            </div>
-            <div className="px-3 py-2 flex items-center justify-between">
-              <div>
-                <div className="flex items-center gap-1 text-[11px] font-bold" style={{ color: C.ink }}>
-                  <MapPin size={10} />
-                  {m.area}
-                </div>
-                <div className="text-[10px]" style={{ color: C.slate }}>
-                  {m.rooms}
-                </div>
-              </div>
-              <span className="text-[10px] font-bold rounded-full px-2 py-0.5" style={{ backgroundColor: C.verified, color: C.paper }}>
-                {m.fit}
-              </span>
-            </div>
-          </div>
-        ))}
+      <div className="px-3 py-3 flex flex-col gap-2.5" style={{ color: C.ink }}>
+        <div className="rounded-xl p-3" style={{ backgroundColor: C.cream }}>
+          <h3 className="text-[10px] font-bold mb-1">A little about me</h3>
+          <p className="text-[10px] leading-relaxed">Designer, keen cook and considerate neighbour. Looking for somewhere to call home.</p>
+        </div>
+
       </div>
     </div>
   );
 }
 
-// Two overlapping app screens on a warm backdrop circle (a renter's
-// matches behind, a landlord's shortlist in front), drawn in CSS so it
+// Two overlapping app screens on a warm backdrop circle (a renter’s
+// profile behind, a landlord’s viewing conversation in front), drawn in CSS so it
 // stays on-palette.
 export default function PhoneMockup() {
   return (
@@ -135,10 +86,10 @@ export default function PhoneMockup() {
       />
       <div className="relative flex items-center" aria-hidden="true">
         <Frame className="hidden sm:block -mr-16 mt-16 rotate-[-6deg] scale-90">
-          <MatchesScreen />
+          <RenterProfileScreen />
         </Frame>
         <Frame className="rotate-[3deg]">
-          <ApplicantsScreen />
+          <ViewingChatScreen />
         </Frame>
       </div>
     </div>

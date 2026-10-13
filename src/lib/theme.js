@@ -9,17 +9,18 @@
 // ============================================================
 
 export const C = {
+  yellow: "#FFD055",
   ink: "#1C2321",
   paper: "#EEF0EA",
-  kraft: "#D9C9A8",
-  kraftDark: "#B7A47C",
-  verified: "#3F6B4F",
-  verifiedDeep: "#2C4B37",
-  rust: "#B5502E",
-  rustDeep: "#8F3D22",
+  kraft: "#D5E5DA",
+  kraftDark: "#A8C8B4",
+  verified: "#043D27",
+  verifiedDeep: "#032C1C",
+  rust: "#043D27",
+  rustDeep: "#032C1C",
   slate: "#2F4858",
-  cream: "#F7F5EF",
-  line: "#CFCABB",
+  cream: "#F3F8F4",
+  line: "#C4D8CB",
 };
 
 export const REDUCE_MOTION =

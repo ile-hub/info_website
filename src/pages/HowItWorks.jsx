@@ -1,3 +1,4 @@
+import BrandDoodle from "../components/BrandDoodle";
 import { C } from "../lib/theme";
 import { HOW_STEPS } from "../data/content";
 import Reveal from "../components/Reveal";
@@ -11,8 +12,13 @@ export default function HowItWorks() {
   return (
     <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <Reveal>
+        <div className="brand-heading-row">
+          <div className="min-w-0 flex-1">
         <Eyebrow>How it works</Eyebrow>
-        <PageHeading className="mb-12">From first evidence to a portable trust history.</PageHeading>
+        <PageHeading className="mb-12">Three steps to better renting.</PageHeading>
+          </div>
+          <BrandDoodle variant="how" />
+        </div>
       </Reveal>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
@@ -43,7 +49,7 @@ export default function HowItWorks() {
       </Reveal>
 
       <div className="mt-10 flex justify-center">
-        <Button to="/renters">Start as a renter</Button>
+        <Button to="/waitlist">Join the waitlist</Button>
       </div>
     </section>
   );

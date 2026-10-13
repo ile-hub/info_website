@@ -1,3 +1,4 @@
+import BrandDoodle from "../components/BrandDoodle";
 import { ShieldCheck } from "lucide-react";
 import { C } from "../lib/theme";
 import { LANDLORD_POINTS } from "../data/content";
@@ -12,11 +13,23 @@ export default function Landlords() {
   return (
     <section className="max-w-7xl mx-auto px-5 sm:px-8 py-16">
       <Reveal>
+        <div className="brand-heading-row">
+          <div className="min-w-0 flex-1">
         <Eyebrow>For landlords</Eyebrow>
-        <PageHeading className="mb-5">See who's really ready to rent.</PageHeading>
-        <p className="text-base sm:text-lg leading-relaxed mb-12 max-w-2xl" style={{ color: "#3E4744" }}>
-          Shortlist with confidence using verified evidence and compatibility
-          insight before you've exchanged a single message.
+        <PageHeading className="mb-5">Your property. Your preferences. Better matches.</PageHeading>
+          </div>
+          <BrandDoodle variant="landlords" />
+        </div>
+        <p className="text-base sm:text-lg leading-relaxed mb-5 max-w-6xl" style={{ color: "#3E4744" }}>
+          Tell us what matters to you, from tenancy expectations to acceptable
+          evidence of suitability. Leri helps you find renters who align with
+          your requirements.
+          <span className="font-bold" style={{ color: C.ink }}>
+            Your next great tenant might be hiding in plain sight. 
+          </span>
+        </p>
+        <p className="text-base sm:text-lg leading-relaxed mb-12 max-w-4xl" style={{ color: "#3E4744" }}>
+          
         </p>
       </Reveal>
 
@@ -37,6 +50,44 @@ export default function Landlords() {
           </Reveal>
         ))}
       </div>
+
+      <Reveal>
+        <section aria-labelledby="landlord-promise-title" className="mb-16">
+          <div className="max-w-3xl mx-auto text-center mb-8">
+            <img
+              src="/promise_logo.png"
+              alt="Leri Promise"
+              width="160"
+              height="160"
+              className="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto mb-4"
+            />
+            <Eyebrow>The Leri Landlord Promise</Eyebrow>
+            <h2
+              id="landlord-promise-title"
+              className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight"
+              style={{ color: C.verified }}
+            >
+              Great tenants deserve great landlords. Be the reason great renters get a fair chance!
+            </h2>
+          </div>
+          <div
+            className="rounded-[32px] sm:rounded-[48px] px-6 py-10 sm:px-12 sm:py-14"
+            style={{ backgroundColor: C.kraft }}
+          >
+            <div className="max-w-3xl mx-auto text-base sm:text-lg leading-relaxed" style={{ color: C.ink }}>
+              <p>
+                We're bringing you capable renters who deserve to be seen beyond
+                traditional checklists. In return, we ask you to keep an open mind,
+                assess people carefully, communicate clearly and treat every renter
+                with respect.
+              </p>
+              <p className="mt-8 text-center font-bold" style={{ color: C.verified }}>
+                Trust works when it goes both ways
+              </p>
+            </div>
+          </div>
+        </section>
+      </Reveal>
 
       <Reveal>
         <FormPanel title="List with Leri." body="Join the landlord waitlist and we'll email you as soon as you can start listing.">

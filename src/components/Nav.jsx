@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { C } from "../lib/theme";
 import { NAV } from "../data/nav";
 import Button from "./Button";
+import Logo from "./Logo";
 
 // Single-row sticky header: logo, inline links, CTA. Links collapse into
 // a dropdown menu on small screens.
@@ -29,17 +30,14 @@ export default function Nav() {
       }}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-6">
-        <Link to="/" className="flex items-baseline gap-1 group" aria-label="Leri home">
-          <span
-            className="text-3xl font-black tracking-tight transition-transform duration-300 group-hover:-translate-y-0.5 inline-block"
-            style={{ color: C.ink }}
-          >
-            Leri
-          </span>
-          <span className="w-2 h-2 rounded-full inline-block" style={{ backgroundColor: C.rust }} />
+        <Link to="/" className="flex shrink-0 items-center group" aria-label="Leri home">
+          <Logo
+            size={64}
+            className="h-16 w-16 object-contain transition-transform duration-300 group-hover:-translate-y-0.5"
+          />
         </Link>
 
-        <nav className="hidden md:flex items-center gap-8" aria-label="Main">
+        <nav className="hidden lg:flex items-center gap-5" aria-label="Main">
           {NAV.map((n) => (
             <NavLink
               key={n.key}
@@ -53,7 +51,7 @@ export default function Nav() {
                   {n.label}
                   <span
                     className="absolute left-0 -bottom-0.5 h-0.5 rounded-full transition-all duration-300"
-                    style={{ width: isActive ? "100%" : 0, backgroundColor: C.rust }}
+                    style={{ width: isActive ? "100%" : 0, backgroundColor: C.yellow }}
                   />
                 </>
               )}
@@ -68,7 +66,7 @@ export default function Nav() {
             </Button>
           </div>
           <button
-            className="md:hidden p-2 rounded-lg"
+            className="lg:hidden p-2 rounded-lg"
             style={{ color: C.ink }}
             onClick={() => setOpen((o) => !o)}
             aria-label={open ? "Close menu" : "Open menu"}
@@ -80,7 +78,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <div className="md:hidden px-5 pb-5" style={{ backgroundColor: C.paper }}>
+        <div className="lg:hidden px-5 pb-5" style={{ backgroundColor: C.paper }}>
           <div className="flex flex-col rounded-2xl overflow-hidden" style={{ backgroundColor: C.ink }}>
             {[...NAV, { key: "waitlist", label: "Join the waitlist", path: "/waitlist" }].map((n) => (
               <NavLink

@@ -4,7 +4,7 @@ import { C } from "../lib/theme";
 
 // Renders a router link when `to` is set (so crawlers can follow it), a
 // plain anchor for external/mailto `href`s, otherwise a button.
-export default function Button({ children, variant = "primary", to, href, onClick, icon = false, className = "" }) {
+export default function Button({ children, variant = "primary", to, href, onClick, icon = false, className = "", target, rel }) {
   const styles =
     variant === "primary"
       ? { backgroundColor: C.rust, color: C.paper }
@@ -18,6 +18,8 @@ export default function Button({ children, variant = "primary", to, href, onClic
     <Tag
       to={to}
       href={href}
+      target={target}
+      rel={target === "_blank" ? (rel || "noopener noreferrer") : rel}
       onClick={onClick}
       className={`inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-base transition-all duration-500 ease-in-out hover:-translate-y-0.5 hover:brightness-110 active:translate-y-0 ${className}`}
       style={styles}
