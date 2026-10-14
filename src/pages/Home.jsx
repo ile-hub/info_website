@@ -1,7 +1,7 @@
 import BrandDoodle from "../components/BrandDoodle";
-import { ShieldCheck, FileStack, TrendingUp, Users, Zap, Repeat, Mail } from "lucide-react";
+import { ShieldCheck, Users, Zap, Repeat, Mail } from "lucide-react";
 import { C, SOFT_SHADOW } from "../lib/theme";
-import { VALUE_POINTS, PROBLEM_POINTS, LANDLORD_POINTS } from "../data/content";
+import { PROBLEM_POINTS, LANDLORD_POINTS } from "../data/content";
 import Reveal from "../components/Reveal";
 import PhoneMockup from "../components/PhoneMockup";
 import EvidenceBoard from "../components/EvidenceBoard";
@@ -13,7 +13,6 @@ import FormPanel from "../components/FormPanel";
 import WaitlistForm from "../components/WaitlistForm";
 import Logo from "../components/Logo";
 
-const VALUE_ICONS = [FileStack, ShieldCheck, TrendingUp, Repeat];
 const LANDLORD_ICONS = [ShieldCheck, Users, Zap, Repeat];
 
 function IconBadge({ icon: Icon, tone = C.kraft, color = C.ink }) {
@@ -110,34 +109,11 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </Reveal>
-      </section>
-
-      {/* Why it works */}
-      <section className="max-w-7xl mx-auto px-5 sm:px-8 py-12">
-        <Reveal className="text-center">
-          <Eyebrow>A little more understanding. A lot less guesswork.</Eyebrow>
-          <SectionTitle>Why it works</SectionTitle>
-        </Reveal>
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
-          {VALUE_POINTS.map((v, i) => (
-            <Reveal key={v.title} delay={i * 0.1} className="h-full">
-              <Card>
-                <IconBadge icon={VALUE_ICONS[i]} />
-                <h3 className="text-xl font-bold mt-6 mb-2" style={{ color: C.ink }}>
-                  {v.title}
-                </h3>
-                <p className="text-[15px] leading-7" style={{ color: "#4B534F" }}>
-                  {v.desc}
-                </p>
-              </Card>
-            </Reveal>
-          ))}
-        </div>
-        <Reveal delay={0.3} className="mt-10 flex justify-center">
-          <Button variant="dark" to="/how-it-works">
-            See how it works
-          </Button>
+          <div className="mt-8 sm:pl-[52px]">
+            <Button variant="dark" to="/how-it-works">
+              See how it works
+            </Button>
+          </div>
         </Reveal>
       </section>
 
@@ -214,8 +190,7 @@ export default function Home() {
               <Eyebrow>Get in touch</Eyebrow>
               <SectionTitle className="!mb-3">Let's talk</SectionTitle>
               <p className="text-[15px] leading-7 max-w-xl" style={{ color: "#4B534F" }}>
-                Letting agent, housing provider, university, or writing about
-                renting? We'd love to hear from you. Questions from renters and
+                Renter, landlord, university, or in the housing or property space? We'd love to hear from you. Questions from renters and
                 landlords are welcome too.
               </p>
             </div>

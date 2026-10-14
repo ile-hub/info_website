@@ -1,8 +1,8 @@
 import { C } from "../lib/theme";
 
-export default function SectionTitle({ children, light, className = "" }) {
+export default function SectionTitle({ children, light, className = "", as: Tag = "h2" }) {
   return (
-    <h2
+    <Tag
       className={`font-extrabold uppercase leading-[1.05] mb-4 ${className}`}
       style={{
         color: light ? C.paper : C.ink,
@@ -11,6 +11,6 @@ export default function SectionTitle({ children, light, className = "" }) {
       }}
     >
       {children}
-    </h2>
+    </Tag>
   );
 }

@@ -57,12 +57,18 @@ export const LANDLORD_POINTS = [
 ];
 
 export const HOW_STEPS = [
-  { title: "Verify identity", body: "A quick identity and right-to-rent check is required before anything else, so trust starts from a solid base." },
-  { title: "Build your evidence file", body: "Add evidence at your own pace, choosing whatever pathways fit your situation." },
-  { title: "Get a trust profile, not a score", body: "See a clear confidence level, plus next steps to strengthen any area that's light on evidence." },
-  { title: "Get matched", body: "Compatibility matching considers your preferences alongside your trust profile to surface properties that actually fit." },
-  { title: "Apply with confidence", body: "Landlords see your evidence-backed profile and compatibility fit together, so you don't have to re-submit the same documents." },
-  { title: "Your history grows", body: "Once a tenancy completes, the outcome feeds back in, so your next move starts from a stronger position, not zero." },
+  {
+    title: "Build your trust profile.",
+    body: "Tell us who you are and what you’re looking for. Verify your identity, share your preferences and upload credible evidence that tells your story.",
+  },
+  {
+    title: "Let Leri find your fit.",
+    body: "Leri connects compatible landlords and renters based on their preferences, circumstances and expectations. Explore profiles, discover properties, start conversations and decide what happens next.",
+  },
+  {
+    title: "Build a history that grows with you.",
+    body: "Your rental journey doesn’t end with one match. Build a lasting rental history that strengthens your profile over time. Pause your membership when you’re settled and pick up where you left off whenever you’re ready to rent again.",
+  },
 ];
 
 export const EVIDENCE_NODES = [
