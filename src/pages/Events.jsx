@@ -66,7 +66,7 @@ export default function Events() {
           </Reveal>
         </div>
       </section>
-      <section className="events-container events-past">
+      {/* <section className="events-container events-past">
         <Reveal><Label>Past events</Label><p>A look back at some of the conversations, people and progress.</p></Reveal>
         <div className="events-past-carousel">
         <div className="events-past-grid" aria-live="polite" aria-atomic="true">
@@ -89,7 +89,7 @@ export default function Events() {
           <ArrowRight size={24} aria-hidden="true" />
         </button>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

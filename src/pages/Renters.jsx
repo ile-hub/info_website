@@ -74,8 +74,13 @@ export default function Renters() {
       <Reveal>
         <section
           aria-labelledby="renter-promise-title"
-          className="mb-16"
+          className="mb-16 promise-layout"
         >
+          <div className="promise-photo-wrap">
+            <img src="/pinky-promise.jpeg" alt="Two people linking pinky fingers in a promise" width="1280" height="1920" loading="lazy" className="promise-photo" />
+          </div>
+          <div className="promise-content">
+
           <div className="max-w-3xl mx-auto">
             <img
               src="/promise_logo.png"
@@ -119,6 +124,7 @@ export default function Renters() {
               </p>
             </div>
           </div>
+                  </div>
         </section>
       </Reveal>
 

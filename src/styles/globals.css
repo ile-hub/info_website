@@ -99,3 +99,21 @@ h1, h2, h3, h4 {
   .brand-phone-doodle { top: -1rem; right: .5rem; }
   .brand-phone-doodle .brand-doodle { width: 80px; }
 }
+
+.promise-layout { display: grid; grid-template-columns: minmax(0, .85fr) minmax(0, 1.15fr); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; }
+.promise-photo-wrap { position: relative; padding: .65rem; background: #fff6d8; border-radius: 32px; }
+.promise-photo-wrap::before { content: ''; position: absolute; width: 72px; height: 5px; background: #ffd055; border-radius: 60% 35%; top: -2px; left: 28px; transform: rotate(-5deg); }
+.promise-photo { position: relative; display: block; width: 100%; aspect-ratio: 1 / 1; object-fit: cover; object-position: center 60%; border-radius: 24px; }
+.promise-content { min-width: 0; }
+.promise-content img[src="/promise_logo.png"] { width: 72px; height: 72px; margin-left: 0; margin-bottom: 1rem; }
+.promise-content .text-center { text-align: left; }
+.promise-content h2 { max-width: none; margin-left: 0; }
+.promise-content > div:first-child { margin-bottom: 1.5rem; }
+.promise-content > div[style] { padding: 1.5rem; border-radius: 24px; }
+@media (max-width: 900px) { .promise-layout { grid-template-columns: 1fr; } .promise-photo-wrap { width: min(100%, 420px); margin: 0 auto 1rem; } .promise-photo { aspect-ratio: 1 / 1; } }
+
+.phone-avatar, .phone-property-photo { background-image: url('/phone-reference.png'); background-repeat: no-repeat; }
+.phone-avatar-JK { background-size: 1396.36% auto; background-position: 26.3% 35.1%; }
+.phone-avatar-AR { background-size: 1396.36% auto; background-position: 39.2% 33.9%; }
+.phone-avatar-profile { background-size: 1097.14% auto; background-position: 54.2% 27.7%; }
+.phone-property-photo { background-size: 512% auto; background-position: 31% 54.3%; }
