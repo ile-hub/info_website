@@ -17,7 +17,7 @@ export const VALUE_POINTS = [
   },
   {
     title: "A record that builds over time",
-    desc: "Completed tenancies feed back into the system, so returning renters bring a track record with them, and so do you as a landlord.",
+    desc: "Completed tenancies build your rental history, so you can bring a track record with you when you're ready to rent again.",
   },
 ];
 
@@ -40,15 +40,15 @@ export const PROBLEM_POINTS = [
 export const LANDLORD_POINTS = [
   {
     title: "See the full picture",
-    body: "Trust profiles combine income proof, references and track record, providing a fuller signal than just one rigid criteria.",
+    body: "Trust profiles bring together credible evidence, references and rental history, helping you see the fuller picture beyond a single rigid criterion.",
   },
   {
     title: "Compatibility, alongside trust",
-    body: "Matching also weighs tenancy length, household type and property rules, so the applicants you see aren't just 'safe'; they're actually a fit for your property.",
+    body: "Matching considers tenancy length, household needs and tenancy expectations, helping you connect with renters who fit your requirements.",
   },
   {
     title: "Faster shortlisting",
-    body: "Review evidence-backed profiles upfront, Shortlist with confidence using verified evidence and compatibility insight before you've exchanged a single message.",
+    body: "Review evidence-backed profiles and compatibility information upfront, so you can shortlist with confidence before starting a conversation.",
   },
   {
     title: "You make the decisions",

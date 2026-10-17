@@ -3,38 +3,44 @@
 // generated sitemap, so they can't drift apart.
 export const SITE_URL = "https://leri.app";
 export const SITE_NAME = "Leri";
+export const SOCIAL_IMAGE = {
+  path: "/Leri_logo.png",
+  width: 1254,
+  height: 1254,
+  alt: "Leri logo: a heart-shaped roof above the Leri name",
+};
 
 export const ROUTES = [
   {
     key: "home",
     path: "/",
-    title: "Leri | Renting trust that travels with you",
+    title: "Leri | Better renting starts with the right fit",
     description:
-      "Leri lets renters build one verified, evidence-based profile they can use for every application, and helps landlords see the whole picture beyond a credit check.",
+      "Leri helps renters and landlords find the right fit through personalised matching and flexible ways to demonstrate suitability, so they can connect with confidence.",
     priority: "1.0",
   },
   {
     key: "renters",
     path: "/renters",
-    title: "For Renters | Build one profile, apply anywhere | Leri",
+    title: "For Renters | Find landlords who fit you | Leri",
     description:
-      "Stop re-sending payslips and references for every flat. Build a single evidence-based renter profile with Leri, even if you don't fit the 'standard' applicant mould.",
+      "Show your suitability beyond traditional checklists, find landlords whose expectations fit your circumstances and build a rental history with Leri.",
     priority: "0.9",
   },
   {
     key: "landlords",
     path: "/landlords",
-    title: "For Landlords | Shortlist tenants with confidence | Leri",
+    title: "For Landlords | Your preferences. Better matches. | Leri",
     description:
-      "See verified evidence and compatibility for every applicant upfront. Leri helps landlords shortlist suitable tenants faster, beyond income multiples and credit scores.",
+      "Set your tenancy preferences, review evidence-backed renter profiles and connect with people who fit your requirements. You decide what happens next.",
     priority: "0.9",
   },
   {
     key: "how",
     path: "/how-it-works",
-    title: "How It Works | From first evidence to trusted tenant | Leri",
+    title: "How It Works | Three steps to better renting | Leri",
     description:
-      "Verify your identity, add evidence at your own pace, get a trust profile instead of a score, and get matched with homes that fit. Here's how Leri works.",
+      "Build your trust profile, let Leri connect you with compatible landlords and build a rental history that grows with you. Three steps to better renting.",
     priority: "0.8",
   },
   {
@@ -42,14 +48,14 @@ export const ROUTES = [
     path: "/about",
     title: "About Leri | A social enterprise for fairer renting",
     description:
-      "Leri is a social enterprise building fairer access to housing for students, freelancers, gig workers and newcomers who get filtered out by standard tenant screening.",
+      "Discover why Leri puts people first through personalised matching, flexible evidence and meaningful connections. Meet our founder and help shape better renting.",
     priority: "0.6",
   },
   {
     key: "events",
     path: "/whats-on",
     title: "What’s On | Ideas, conversations and better renting | Leri",
-    description: "Join renters, landlords and changemakers at Leri events. Discover upcoming conversations and explore past events about better renting.",
+    description: "Join renters, landlords and changemakers at Leri events for big ideas, real conversations and a fresh look at the future of renting.",
     priority: "0.7",
   },
   {
