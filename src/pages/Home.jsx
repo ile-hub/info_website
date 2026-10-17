@@ -49,7 +49,7 @@ export default function Home() {
             </span>
           </h1>
           <p className="text-lg sm:text-xl leading-relaxed mb-9 max-w-xl" style={{ color: "#3E4744" }}>
-            Leri puts people first & takes the hassle out of renting through 
+            Léri puts people first & takes the hassle out of renting through 
             personalised matching and flexible ways to demonstrate suitability, 
             helping landlords and renters see the fuller picture, find the right
              fit and connect with confidence.
@@ -87,7 +87,7 @@ export default function Home() {
           <EvidenceBoard />
         </Reveal>
         <Reveal from="right" delay={0.1}>
-          <Eyebrow>Why Leri</Eyebrow>
+          <Eyebrow>Why Léri</Eyebrow>
           <SectionTitle className="mb-8">A simple idea that changes renting</SectionTitle>
           <div className="flex flex-col gap-6">
             {PROBLEM_POINTS.map((p, i) => (
@@ -141,7 +141,7 @@ export default function Home() {
               From campaigning nationally to building a digital efficient solution.
             </p>
             <p className="text-[15px] leading-7 mb-4 max-w-2xl" style={{ color: "#C9CDC4" }}>
-              We're bringing together trustworthy landlords and capable renters who might otherwise miss each other:  from students and first-time renters to graduates, creatives, new to country professionals and self-employed people. Because suitability shouldn't be defined by one type of income, career or rental history.
+              We're bringing together trustworthy landlords and capable renters who might otherwise miss each other:  from students and first-time renters to graduates, creatives, professionals new to the country and self-employed people. Because suitability shouldn't be defined by one type of income, career or rental history.
             </p>
             <p className="text-[15px] leading-7 mb-4 max-w-2xl" style={{ color: "#C9CDC4" }}>
               We're building a community where the right people can find each other. And we're building it with you, not just for you.

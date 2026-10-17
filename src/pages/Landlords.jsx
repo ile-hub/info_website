@@ -22,7 +22,7 @@ export default function Landlords() {
         </div>
         <p className="text-base sm:text-lg leading-relaxed mb-5 max-w-6xl" style={{ color: "#3E4744" }}>
           Tell us what matters to you, from tenancy expectations to acceptable
-          evidence of suitability. Leri helps you find renters who align with
+          evidence of suitability. Léri helps you find renters who align with
           your requirements.{" "}
           <span className="font-bold" style={{ color: C.ink }}>
             Your next great tenant might be hiding in plain sight. 
@@ -58,12 +58,12 @@ export default function Landlords() {
           <div className="max-w-3xl mx-auto text-center mb-8">
             <img
               src="/promise_logo.png"
-              alt="Leri Promise"
+              alt="Léri Promise"
               width="160"
               height="160"
               className="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto mb-4"
             />
-            <Eyebrow>The Leri Landlord Promise</Eyebrow>
+            <Eyebrow>The Léri Landlord Promise</Eyebrow>
             <h2
               id="landlord-promise-title"
               className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight"
@@ -93,7 +93,7 @@ export default function Landlords() {
       </Reveal>
 
       <Reveal>
-        <FormPanel title="List with Leri." body="Join the landlord waitlist and we'll email you as soon as you can start listing.">
+        <FormPanel title="List with Léri." body="Join the landlord waitlist and we'll email you as soon as you can start listing.">
           <WaitlistForm defaultRole="landlord" />
         </FormPanel>
       </Reveal>

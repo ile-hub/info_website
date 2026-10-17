@@ -30,7 +30,7 @@ export default function Nav() {
       }}
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between gap-6">
-        <Link to="/" className="flex shrink-0 items-center group" aria-label="Leri home">
+        <Link to="/" className="flex shrink-0 items-center group" aria-label="Léri home">
           <Logo
             size={64}
             className="h-16 w-16 object-contain transition-transform duration-300 group-hover:-translate-y-0.5"

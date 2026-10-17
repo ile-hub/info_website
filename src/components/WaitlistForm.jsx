@@ -107,7 +107,7 @@ export default function WaitlistForm({ defaultRole = "renter" }) {
         </button>
       </div>
       <p className="mt-4 text-center text-xs" style={{ color: C.slate }}>
-        We'll only email you about Leri's launch. Unsubscribe anytime. See our{" "}
+        We'll only email you about Léri's launch. Unsubscribe anytime. See our{" "}
         <Link to="/privacy" className="underline underline-offset-2">
           privacy notice
         </Link>
