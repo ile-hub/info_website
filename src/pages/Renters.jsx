@@ -54,7 +54,7 @@ export default function Renters() {
       <div className="grid sm:grid-cols-2 gap-8 items-center mb-16">
         <Reveal from="left">
           <h3 className="text-3xl font-extrabold uppercase mb-4" style={{ color: C.ink }}>
-            Build an undeniable profile .
+            Build a profile that tells your story.
           </h3>
           <p className="text-[15px] leading-7 mb-4" style={{ color: "#4B534F" }}>
             Add whatever credible evidence fits your situation; there's no

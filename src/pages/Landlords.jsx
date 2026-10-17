@@ -23,13 +23,10 @@ export default function Landlords() {
         <p className="text-base sm:text-lg leading-relaxed mb-5 max-w-6xl" style={{ color: "#3E4744" }}>
           Tell us what matters to you, from tenancy expectations to acceptable
           evidence of suitability. Leri helps you find renters who align with
-          your requirements.
+          your requirements.{" "}
           <span className="font-bold" style={{ color: C.ink }}>
             Your next great tenant might be hiding in plain sight. 
           </span>
-        </p>
-        <p className="text-base sm:text-lg leading-relaxed mb-12 max-w-4xl" style={{ color: "#3E4744" }}>
-          
         </p>
       </Reveal>
 
