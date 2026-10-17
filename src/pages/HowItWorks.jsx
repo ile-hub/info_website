@@ -21,9 +21,13 @@ export default function HowItWorks() {
     <section className="how-page">
       <div className="max-w-7xl mx-auto px-5 sm:px-8">
         <Reveal className="text-left mb-11">
-          <Eyebrow>How it works</Eyebrow>
-          <SectionTitle as="h1">Three steps to better renting.</SectionTitle>
-          <p className="text-base sm:text-lg leading-relaxed">A simpler, fairer way for landlords and renters to find the right fit —<br className="hidden sm:block" /> now and in the future.</p>
+          <div className="brand-heading-row">
+            <div className="min-w-0 flex-1">
+              <Eyebrow>How it works</Eyebrow>
+              <SectionTitle as="h1">Three steps to better renting.</SectionTitle>
+            </div>
+            <BrandDoodle variant="how" />
+          </div>
         </Reveal>
         <div className="how-steps">
           {HOW_STEPS.map((step, i) => (
@@ -48,7 +52,7 @@ export default function HowItWorks() {
           <Eyebrow>A little more understanding. A lot less guesswork.</Eyebrow>
           <SectionTitle>Why it works</SectionTitle>
         </Reveal>
-        <div className="grid md:grid-cols-3 gap-6 mt-10">
+        <div className="grid md:grid-cols-2 gap-6 mt-10">
           {VALUE_POINTS.map((v, i) => (
             <Reveal key={v.title} delay={i * 0.1} className="h-full">
               <Card>

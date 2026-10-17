@@ -11,12 +11,12 @@ export default function Waitlist() {
         <div className="brand-heading-row">
           <div className="min-w-0 flex-1">
         <Eyebrow>Join us</Eyebrow>
-        <PageHeading className="mb-4">Get early access to Leri.</PageHeading>
+        <PageHeading className="mb-4">Get early access to Léri.</PageHeading>
           </div>
           <BrandDoodle variant="waitlist" />
         </div>
         <p className="text-base leading-relaxed mb-8" style={{ color: "#3E4744" }}>
-          Tell us if you're renting or letting, and we'll email you when Leri
+          Tell us if you're renting or letting, and we'll email you when Léri
           opens up.
         </p>
         <WaitlistForm />

@@ -9,7 +9,7 @@ export const VALUE_POINTS = [
   },
   {
     title: "Find landlords who fit you",
-    desc: "Stop searching blindly. Leri matches you with landlords based on your budget, preferences and tenancy needs, so you can explore more relevant opportunities. Landlords can accept your interest, suggest a more suitable property, refer you to another landlord or offer helpful feedback. Whatever the outcome, you're kept in the loop, treated with respect and never left guessing where you stand.",
+    desc: "Stop searching blindly. Léri matches you with landlords based on your budget, preferences and tenancy needs, so you can explore more relevant opportunities. Landlords can accept your interest, suggest a more suitable property, refer you to another landlord or offer helpful feedback. Whatever the outcome, you're kept in the loop, treated with respect and never left guessing where you stand.",
   },
   {
     title: "Make your match count",
@@ -24,11 +24,11 @@ export const VALUE_POINTS = [
 export const PROBLEM_POINTS = [
   {
     title: "Our story is more than a checklist",
-    body: "Forget the one-size-fits-all approach. Leri gives renters flexible ways to demonstrate their suitability while helping landlords assess the evidence that matters to them. A fuller picture, without unnecessary barriers.",
+    body: "Forget the one-size-fits-all approach. Léri gives renters flexible ways to demonstrate their suitability while helping landlords assess the evidence that matters to them. A fuller picture, without unnecessary barriers.",
   },
   {
     title: "We match people before properties",
-    body: "Instead of endless listings and unsuitable applications, Leri connects landlords and renters based on their preferences, circumstances and tenancy expectations. Because the right property means little without the right fit.",
+    body: "Instead of endless listings and unsuitable applications, Léri connects landlords and renters based on their preferences, circumstances and tenancy expectations. Because the right property means little without the right fit.",
   },
   {
     title: "From match to meaningful connection",
@@ -52,7 +52,7 @@ export const LANDLORD_POINTS = [
   },
   {
     title: "You make the decisions",
-    body: "Finding a match is just the beginning. Review renter profiles, explore their suitability and decide what happens next. Accept their interest, arrange a viewing, suggest a better-suited property or offer helpful feedback. Leri makes the matches and gives you more information to make confident decisions.",
+    body: "Finding a match is just the beginning. Review renter profiles, explore their suitability and decide what happens next. Accept their interest, arrange a viewing, suggest a better-suited property or offer helpful feedback. Léri makes the matches and gives you more information to make confident decisions.",
   },
 ];
 
@@ -62,8 +62,8 @@ export const HOW_STEPS = [
     body: "Tell us who you are and what you’re looking for. Verify your identity, share your preferences and upload credible evidence that tells your story.",
   },
   {
-    title: "Let Leri find your fit.",
-    body: "Leri connects compatible landlords and renters based on their preferences, circumstances and expectations. Explore profiles, discover properties, start conversations and decide what happens next.",
+    title: "Let Léri find your fit.",
+    body: "Léri connects compatible landlords and renters based on their preferences, circumstances and expectations. Explore profiles, discover properties, start conversations and decide what happens next.",
   },
   {
     title: "Build a history that grows with you.",

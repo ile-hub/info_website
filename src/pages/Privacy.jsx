@@ -10,7 +10,7 @@ const SECTIONS = [
   {
     title: "Who we are",
     body: [
-      `Leri ("we", "us") is a trust and compatibility platform for renting, currently in development. We are the controller of the personal data described in this notice. You can contact us about anything in it at ${CONTACT}.`,
+      `Léri ("we", "us") is a trust and compatibility platform for renting, currently in development. We are the controller of the personal data described in this notice. You can contact us about anything in it at ${CONTACT}.`,
     ],
   },
   {
@@ -23,7 +23,7 @@ const SECTIONS = [
   {
     title: "Why we use it",
     body: [
-      "We use your details only to email you about Leri's launch and early access, and to understand roughly how many renters and landlords are interested.",
+      "We use your details only to email you about Léri's launch and early access, and to understand roughly how many renters and landlords are interested.",
       "Our lawful basis is your consent, which you give by joining the waitlist. You can withdraw it at any time (see below).",
       "We will never sell your data or share it with landlords, agents or other third parties for their own marketing.",
     ],
@@ -37,7 +37,7 @@ const SECTIONS = [
   {
     title: "How long we keep it",
     body: [
-      "We keep your details until you ask us to remove them or unsubscribe, or until 12 months after Leri launches, whichever comes first. After that we delete them.",
+      "We keep your details until you ask us to remove them or unsubscribe, or until 12 months after Léri launches, whichever comes first. After that we delete them.",
     ],
   },
   {
@@ -50,7 +50,7 @@ const SECTIONS = [
   {
     title: "Changes to this notice",
     body: [
-      "We'll update this notice as Leri grows (for example, when accounts and trust profiles launch) and change the date at the top. If a change affects how we use your existing data, we'll email you first.",
+      "We'll update this notice as Léri grows (for example, when accounts and trust profiles launch) and change the date at the top. If a change affects how we use your existing data, we'll email you first.",
     ],
   },
 ];

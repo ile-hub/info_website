@@ -12,7 +12,7 @@ export default function Footer() {
         <div>
           <Link
             to="/"
-            aria-label="Leri home"
+            aria-label="Léri home"
             className="inline-flex mb-4"
           >
             <Logo
@@ -76,7 +76,7 @@ export default function Footer() {
         style={{ color: C.kraftDark, borderColor: "#2E3634" }}
       >
         <span>
-          © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Leri. All rights reserved. ·{" "}
+          © <span suppressHydrationWarning>{new Date().getFullYear()}</span> Léri. All rights reserved. ·{" "}
           <Link to="/privacy" className="underline underline-offset-2 transition-colors duration-300 hover:text-[#D5E5DA]">
             Privacy
           </Link>

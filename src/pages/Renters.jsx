@@ -24,7 +24,7 @@ export default function Renters() {
           Endless listings, rigid requirements, pointless viewings and unanswered applications. Renting shouldn't feel like a battlefield.
         </p>
         <p className="text-base sm:text-lg leading-relaxed mb-10 max-w-6xl" style={{ color: "#3E4744" }}>
-          Leri helps you show your suitability beyond traditional checklists, find landlords whose expectations align with your circumstances and connect with confidence.
+          Léri helps you show your suitability beyond traditional checklists, find landlords whose expectations align with your circumstances and connect with confidence.
         </p>
       </Reveal>
 
@@ -84,13 +84,13 @@ export default function Renters() {
           <div className="max-w-3xl mx-auto">
             <img
               src="/promise_logo.png"
-              alt="Leri Promise"
+              alt="Léri Promise"
               width="160"
               height="160"
               className="w-32 h-32 sm:w-40 sm:h-40 object-contain mx-auto mb-4"
             />
             <div className="text-center mb-8">
-              <Eyebrow>The Leri Renter Promise</Eyebrow>
+              <Eyebrow>The Léri Renter Promise</Eyebrow>
               <h2
                 id="renter-promise-title"
                 className="text-3xl sm:text-4xl font-extrabold leading-tight tracking-tight max-w-xl mx-auto"
